@@ -44,6 +44,13 @@
 		E97306B12240BA23006AE040 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97306B02240BA23006AE040 /* KeyboardManager.swift */; };
 		E97306B52240C6AA006AE040 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97306B42240C6AA006AE040 /* RegisterModel.swift */; };
 		E97306B72240C901006AE040 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97306B62240C901006AE040 /* RegisterViewModel.swift */; };
+		E9FD92A02240FEE80079A039 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD929F2240FEE80079A039 /* LoginModel.swift */; };
+		E9FD92A22240FEFA0079A039 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92A12240FEFA0079A039 /* LoginViewModel.swift */; };
+		E9FD92A4224112F70079A039 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92A3224112F70079A039 /* Dictionary.swift */; };
+		E9FD92A62241150E0079A039 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92A52241150E0079A039 /* UserModel.swift */; };
+		E9FD92A822411B0C0079A039 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92A722411B0C0079A039 /* UIViewController.swift */; };
+		E9FD92AB224122300079A039 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92AA224122300079A039 /* KeychainPasswordItem.swift */; };
+		E9FD92AD224122950079A039 /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92AC224122950079A039 /* KeychainConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +114,13 @@
 		E97306B02240BA23006AE040 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		E97306B42240C6AA006AE040 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		E97306B62240C901006AE040 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		E9FD929F2240FEE80079A039 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		E9FD92A12240FEFA0079A039 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		E9FD92A3224112F70079A039 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		E9FD92A52241150E0079A039 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E9FD92A722411B0C0079A039 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		E9FD92AA224122300079A039 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		E9FD92AC224122950079A039 /* KeychainConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +171,7 @@
 		E97305DA223F7B47006AE040 /* NeoStore */ = {
 			isa = PBXGroup;
 			children = (
+				E9FD92A9224121910079A039 /* KeyChain */,
 				E9730622223FB62A006AE040 /* Resources */,
 				E973061F223FB0F7006AE040 /* Extension */,
 				E973061A223F8976006AE040 /* Utilities */,
@@ -212,6 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				E97306B42240C6AA006AE040 /* RegisterModel.swift */,
+				E9FD929F2240FEE80079A039 /* LoginModel.swift */,
+				E9FD92A52241150E0079A039 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				E97306B62240C901006AE040 /* RegisterViewModel.swift */,
+				E9FD92A12240FEFA0079A039 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -265,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				E9730620223FB132006AE040 /* UIColor.swift */,
+				E9FD92A3224112F70079A039 /* Dictionary.swift */,
+				E9FD92A722411B0C0079A039 /* UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -301,6 +321,15 @@
 				E9730651223FB71E006AE040 /* GOTHAM-XLIGHTITALIC.TTF */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E9FD92A9224121910079A039 /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				E9FD92AA224122300079A039 /* KeychainPasswordItem.swift */,
+				E9FD92AC224122950079A039 /* KeychainConfiguration.swift */,
+			);
+			path = KeyChain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,15 +483,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				E97306AA223FC4EE006AE040 /* RegisterView.swift in Sources */,
+				E9FD92A4224112F70079A039 /* Dictionary.swift in Sources */,
+				E9FD92A822411B0C0079A039 /* UIViewController.swift in Sources */,
+				E9FD92A02240FEE80079A039 /* LoginModel.swift in Sources */,
 				E9730610223F7EFC006AE040 /* LoginView.swift in Sources */,
 				E9730621223FB132006AE040 /* UIColor.swift in Sources */,
 				E9730619223F8766006AE040 /* APIManager.swift in Sources */,
 				E97305DE223F7B47006AE040 /* ViewController.swift in Sources */,
 				E97305DC223F7B47006AE040 /* AppDelegate.swift in Sources */,
+				E9FD92A62241150E0079A039 /* UserModel.swift in Sources */,
 				E973061E223FAF79006AE040 /* NavigationController.swift in Sources */,
+				E9FD92A22240FEFA0079A039 /* LoginViewModel.swift in Sources */,
 				E97306B12240BA23006AE040 /* KeyboardManager.swift in Sources */,
 				E97306B72240C901006AE040 /* RegisterViewModel.swift in Sources */,
+				E9FD92AD224122950079A039 /* KeychainConfiguration.swift in Sources */,
 				E97306B52240C6AA006AE040 /* RegisterModel.swift in Sources */,
+				E9FD92AB224122300079A039 /* KeychainPasswordItem.swift in Sources */,
 				E973061C223F8990006AE040 /* Constants.swift in Sources */,
 				E97306AF2240B456006AE040 /* Utilities.swift in Sources */,
 				E973069B223FC1C8006AE040 /* CustomTextField.swift in Sources */,

@@ -9,23 +9,29 @@
 import UIKit
 
 class Utilities: NSObject {
+    
+    //MARK: Alert View
+    
+    class func alertViewWithOneAction(_ viewController: UIViewController, _ title: String, _ message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        viewController.present(alertController, animated: true, completion: nil)
+    }
 
     //MARK: JSON Parsing
     
-    class func getJSON(_ apiName: String, _ data: Data ) {
+    class func getJSON(_ apiName: String, _ data: Data ) -> [String: Any] {
         // parse the result as JSON, since that's what the API provides
         do {
-            guard let receivedJSON = try JSONSerialization.jsonObject(with: data,
+            guard let resultDict = try JSONSerialization.jsonObject(with: data,
                                                                       options: []) as? [String: Any] else {
                                                                         print("Could not get JSON from responseData as dictionary")
-                                                                        return
+                                                                        return [String: Any]()
             }
-            print("The resonse json is: ")
-            print(receivedJSON)
+            return resultDict
             
         } catch  {
             print("error parsing response from POST on \(apiName)")
-            return
+            return [String: Any]()
         }
     }
    

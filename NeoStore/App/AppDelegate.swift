@@ -15,17 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var loginView: LoginView!
     var registerView: RegisterView!
-
+    
+    var passwordItems = [KeychainPasswordItem]()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print("didFinishLaunchingWithOptions")
+        
+        do {
+            passwordItems = try KeychainPasswordItem.passwordItems(forService: KeychainConfiguration.serviceName, accessGroup: KeychainConfiguration.accessGroup)
+        }
+        catch {
+            fatalError("Error fetching password items - \(error)")
+        }
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         loginView = LoginView()
         registerView = RegisterView()
         
         let navController = NavigationController(rootViewController: registerView)
         
-        window?.rootViewController = navController
+        window?.rootViewController = loginView
         window?.makeKeyAndVisible()
         
         return true
