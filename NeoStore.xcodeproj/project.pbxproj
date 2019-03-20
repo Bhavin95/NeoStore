@@ -51,6 +51,43 @@
 		E9FD92A822411B0C0079A039 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92A722411B0C0079A039 /* UIViewController.swift */; };
 		E9FD92AB224122300079A039 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92AA224122300079A039 /* KeychainPasswordItem.swift */; };
 		E9FD92AD224122950079A039 /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92AC224122950079A039 /* KeychainConfiguration.swift */; };
+		E9FD92AF224205260079A039 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92AE224205260079A039 /* UIButton.swift */; };
+		E9FD92B2224205A60079A039 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92B1224205A60079A039 /* CustomButton.swift */; };
+		E9FD92B622420B800079A039 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92B422420B800079A039 /* HomeView.swift */; };
+		E9FD92B722420B800079A039 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FD92B522420B800079A039 /* HomeView.xib */; };
+		E9FD92BA224212F10079A039 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92B8224212F10079A039 /* ImageCollectionViewCell.swift */; };
+		E9FD92BB224212F10079A039 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92B8224212F10079A039 /* ImageCollectionViewCell.swift */; };
+		E9FD92BC224212F10079A039 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92B8224212F10079A039 /* ImageCollectionViewCell.swift */; };
+		E9FD92BD224212F10079A039 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FD92B9224212F10079A039 /* ImageCollectionViewCell.xib */; };
+		E9FD92BE224212F10079A039 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FD92B9224212F10079A039 /* ImageCollectionViewCell.xib */; };
+		E9FD92BF224212F10079A039 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FD92B9224212F10079A039 /* ImageCollectionViewCell.xib */; };
+		E9FD92C122421A310079A039 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92C022421A310079A039 /* HomeModel.swift */; };
+		E9FD92C222421A310079A039 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92C022421A310079A039 /* HomeModel.swift */; };
+		E9FD92C322421A310079A039 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92C022421A310079A039 /* HomeModel.swift */; };
+		E9FD92C522421A740079A039 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92C422421A740079A039 /* HomeViewModel.swift */; };
+		E9FD92C622421A740079A039 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92C422421A740079A039 /* HomeViewModel.swift */; };
+		E9FD92C722421A740079A039 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92C422421A740079A039 /* HomeViewModel.swift */; };
+		E9FD92E422424F6F0079A039 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92E222424F6F0079A039 /* ProductListView.swift */; };
+		E9FD92E522424F6F0079A039 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92E222424F6F0079A039 /* ProductListView.swift */; };
+		E9FD92E622424F6F0079A039 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92E222424F6F0079A039 /* ProductListView.swift */; };
+		E9FD92E722424F6F0079A039 /* ProductListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FD92E322424F6F0079A039 /* ProductListView.xib */; };
+		E9FD92E822424F6F0079A039 /* ProductListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FD92E322424F6F0079A039 /* ProductListView.xib */; };
+		E9FD92E922424F6F0079A039 /* ProductListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FD92E322424F6F0079A039 /* ProductListView.xib */; };
+		E9FD92F3224251580079A039 /* ProductListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92F2224251580079A039 /* ProductListModel.swift */; };
+		E9FD92F4224251580079A039 /* ProductListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92F2224251580079A039 /* ProductListModel.swift */; };
+		E9FD92F5224251580079A039 /* ProductListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92F2224251580079A039 /* ProductListModel.swift */; };
+		E9FD92F7224251940079A039 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92F6224251940079A039 /* ProductListViewModel.swift */; };
+		E9FD92F8224251940079A039 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92F6224251940079A039 /* ProductListViewModel.swift */; };
+		E9FD92F9224251940079A039 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92F6224251940079A039 /* ProductListViewModel.swift */; };
+		E9FD92FC224252EB0079A039 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92FA224252EB0079A039 /* ProductCell.swift */; };
+		E9FD92FD224252EB0079A039 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92FA224252EB0079A039 /* ProductCell.swift */; };
+		E9FD92FE224252EB0079A039 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD92FA224252EB0079A039 /* ProductCell.swift */; };
+		E9FD92FF224252EB0079A039 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FD92FB224252EB0079A039 /* ProductCell.xib */; };
+		E9FD9300224252EB0079A039 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FD92FB224252EB0079A039 /* ProductCell.xib */; };
+		E9FD9301224252EB0079A039 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FD92FB224252EB0079A039 /* ProductCell.xib */; };
+		E9FD9303224254530079A039 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD9302224254530079A039 /* ProductModel.swift */; };
+		E9FD9304224254530079A039 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD9302224254530079A039 /* ProductModel.swift */; };
+		E9FD9305224254530079A039 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD9302224254530079A039 /* ProductModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +158,22 @@
 		E9FD92A722411B0C0079A039 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		E9FD92AA224122300079A039 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		E9FD92AC224122950079A039 /* KeychainConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
+		E9FD92AE224205260079A039 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		E9FD92B1224205A60079A039 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		E9FD92B422420B800079A039 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E9FD92B522420B800079A039 /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
+		E9FD92B8224212F10079A039 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9FD92B9224212F10079A039 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		E9FD92C022421A310079A039 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		E9FD92C422421A740079A039 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E9FD92DF224248F00079A039 /* NeoStore-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NeoStore-Bridging-Header.h"; sourceTree = "<group>"; };
+		E9FD92E222424F6F0079A039 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		E9FD92E322424F6F0079A039 /* ProductListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListView.xib; sourceTree = "<group>"; };
+		E9FD92F2224251580079A039 /* ProductListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListModel.swift; sourceTree = "<group>"; };
+		E9FD92F6224251940079A039 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		E9FD92FA224252EB0079A039 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		E9FD92FB224252EB0079A039 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		E9FD9302224254530079A039 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +224,8 @@
 		E97305DA223F7B47006AE040 /* NeoStore */ = {
 			isa = PBXGroup;
 			children = (
+				E9FD92DE2242489F0079A039 /* HeaderFile */,
+				E9FD92B02242057E0079A039 /* IBDesignable */,
 				E9FD92A9224121910079A039 /* KeyChain */,
 				E9730622223FB62A006AE040 /* Resources */,
 				E973061F223FB0F7006AE040 /* Extension */,
@@ -217,6 +272,9 @@
 		E973060A223F7E9E006AE040 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E9FD92E122424F3C0079A039 /* ProductListView */,
+				E9FD92E022424F040079A039 /* CollectionViewCell */,
+				E9FD92B322420B380079A039 /* HomeView */,
 				E9730612223F8213006AE040 /* RegisterView */,
 				E973060D223F7ED3006AE040 /* LoginView */,
 			);
@@ -229,6 +287,9 @@
 				E97306B42240C6AA006AE040 /* RegisterModel.swift */,
 				E9FD929F2240FEE80079A039 /* LoginModel.swift */,
 				E9FD92A52241150E0079A039 /* UserModel.swift */,
+				E9FD92C022421A310079A039 /* HomeModel.swift */,
+				E9FD9302224254530079A039 /* ProductModel.swift */,
+				E9FD92F2224251580079A039 /* ProductListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +299,8 @@
 			children = (
 				E97306B62240C901006AE040 /* RegisterViewModel.swift */,
 				E9FD92A12240FEFA0079A039 /* LoginViewModel.swift */,
+				E9FD92C422421A740079A039 /* HomeViewModel.swift */,
+				E9FD92F6224251940079A039 /* ProductListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -285,6 +348,7 @@
 				E9730620223FB132006AE040 /* UIColor.swift */,
 				E9FD92A3224112F70079A039 /* Dictionary.swift */,
 				E9FD92A722411B0C0079A039 /* UIViewController.swift */,
+				E9FD92AE224205260079A039 /* UIButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -292,7 +356,6 @@
 		E9730622223FB62A006AE040 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E973069A223FC1C8006AE040 /* CustomTextField.swift */,
 				E973064C223FB6FC006AE040 /* Fonts */,
 			);
 			path = Resources;
@@ -330,6 +393,52 @@
 				E9FD92AC224122950079A039 /* KeychainConfiguration.swift */,
 			);
 			path = KeyChain;
+			sourceTree = "<group>";
+		};
+		E9FD92B02242057E0079A039 /* IBDesignable */ = {
+			isa = PBXGroup;
+			children = (
+				E973069A223FC1C8006AE040 /* CustomTextField.swift */,
+				E9FD92B1224205A60079A039 /* CustomButton.swift */,
+			);
+			path = IBDesignable;
+			sourceTree = "<group>";
+		};
+		E9FD92B322420B380079A039 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				E9FD92B422420B800079A039 /* HomeView.swift */,
+				E9FD92B522420B800079A039 /* HomeView.xib */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		E9FD92DE2242489F0079A039 /* HeaderFile */ = {
+			isa = PBXGroup;
+			children = (
+				E9FD92DF224248F00079A039 /* NeoStore-Bridging-Header.h */,
+			);
+			path = HeaderFile;
+			sourceTree = "<group>";
+		};
+		E9FD92E022424F040079A039 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E9FD92B8224212F10079A039 /* ImageCollectionViewCell.swift */,
+				E9FD92B9224212F10079A039 /* ImageCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		E9FD92E122424F3C0079A039 /* ProductListView */ = {
+			isa = PBXGroup;
+			children = (
+				E9FD92E222424F6F0079A039 /* ProductListView.swift */,
+				E9FD92E322424F6F0079A039 /* ProductListView.xib */,
+				E9FD92FA224252EB0079A039 /* ProductCell.swift */,
+				E9FD92FB224252EB0079A039 /* ProductCell.xib */,
+			);
+			path = ProductListView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,13 +509,16 @@
 				TargetAttributes = {
 					E97305D7223F7B47006AE040 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					E97305EB223F7B54006AE040 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = E97305D7223F7B47006AE040;
 					};
 					E97305F6223F7B54006AE040 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = E97305D7223F7B47006AE040;
 					};
 				};
@@ -436,17 +548,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9FD92B722420B800079A039 /* HomeView.xib in Resources */,
 				E9730660223FB720006AE040 /* Gotham-Book.otf in Resources */,
 				E973066A223FB720006AE040 /* GOTHAM-LIGHT.TTF in Resources */,
 				E9730669223FB720006AE040 /* GOTHAM-BOOKITALIC_0.OTF in Resources */,
 				E9730668223FB720006AE040 /* GOTHAM-BOLDITALIC.TTF in Resources */,
 				E973066D223FB720006AE040 /* GOTHAM-BOLD.TTF in Resources */,
 				E9730667223FB720006AE040 /* GOTHAM-BLACKITALIC.TTF in Resources */,
+				E9FD92E722424F6F0079A039 /* ProductListView.xib in Resources */,
 				E973066F223FB720006AE040 /* GOTHAM-THINITALIC.TTF in Resources */,
 				E9730666223FB720006AE040 /* GOTHAM-ULTRAITALIC.TTF in Resources */,
 				E973065F223FB720006AE040 /* GOTHAM-ULTRA.TTF in Resources */,
 				E97305E6223F7B53006AE040 /* LaunchScreen.storyboard in Resources */,
 				E973066C223FB720006AE040 /* GOTHAM-LIGHT_0.OTF in Resources */,
+				E9FD92FF224252EB0079A039 /* ProductCell.xib in Resources */,
 				E97306AB223FC4EE006AE040 /* RegisterView.xib in Resources */,
 				E9730661223FB720006AE040 /* GOTHAM-MEDIUM.TTF in Resources */,
 				E9730665223FB720006AE040 /* GOTHAM-THIN.TTF in Resources */,
@@ -457,6 +572,7 @@
 				E973066B223FB720006AE040 /* GOTHAM-BLACK.TTF in Resources */,
 				E973066E223FB720006AE040 /* GOTHAM-LIGHTITALIC.TTF in Resources */,
 				E97305E3223F7B53006AE040 /* Assets.xcassets in Resources */,
+				E9FD92BD224212F10079A039 /* ImageCollectionViewCell.xib in Resources */,
 				E9730611223F7EFC006AE040 /* LoginView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +581,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9FD9300224252EB0079A039 /* ProductCell.xib in Resources */,
+				E9FD92E822424F6F0079A039 /* ProductListView.xib in Resources */,
+				E9FD92BE224212F10079A039 /* ImageCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +591,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9FD9301224252EB0079A039 /* ProductCell.xib in Resources */,
+				E9FD92E922424F6F0079A039 /* ProductListView.xib in Resources */,
+				E9FD92BF224212F10079A039 /* ImageCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,19 +610,30 @@
 				E9FD92A02240FEE80079A039 /* LoginModel.swift in Sources */,
 				E9730610223F7EFC006AE040 /* LoginView.swift in Sources */,
 				E9730621223FB132006AE040 /* UIColor.swift in Sources */,
+				E9FD92F3224251580079A039 /* ProductListModel.swift in Sources */,
+				E9FD92E422424F6F0079A039 /* ProductListView.swift in Sources */,
 				E9730619223F8766006AE040 /* APIManager.swift in Sources */,
 				E97305DE223F7B47006AE040 /* ViewController.swift in Sources */,
 				E97305DC223F7B47006AE040 /* AppDelegate.swift in Sources */,
 				E9FD92A62241150E0079A039 /* UserModel.swift in Sources */,
 				E973061E223FAF79006AE040 /* NavigationController.swift in Sources */,
+				E9FD92AF224205260079A039 /* UIButton.swift in Sources */,
 				E9FD92A22240FEFA0079A039 /* LoginViewModel.swift in Sources */,
 				E97306B12240BA23006AE040 /* KeyboardManager.swift in Sources */,
 				E97306B72240C901006AE040 /* RegisterViewModel.swift in Sources */,
 				E9FD92AD224122950079A039 /* KeychainConfiguration.swift in Sources */,
+				E9FD9303224254530079A039 /* ProductModel.swift in Sources */,
 				E97306B52240C6AA006AE040 /* RegisterModel.swift in Sources */,
 				E9FD92AB224122300079A039 /* KeychainPasswordItem.swift in Sources */,
+				E9FD92BA224212F10079A039 /* ImageCollectionViewCell.swift in Sources */,
+				E9FD92B2224205A60079A039 /* CustomButton.swift in Sources */,
 				E973061C223F8990006AE040 /* Constants.swift in Sources */,
+				E9FD92C522421A740079A039 /* HomeViewModel.swift in Sources */,
 				E97306AF2240B456006AE040 /* Utilities.swift in Sources */,
+				E9FD92F7224251940079A039 /* ProductListViewModel.swift in Sources */,
+				E9FD92B622420B800079A039 /* HomeView.swift in Sources */,
+				E9FD92FC224252EB0079A039 /* ProductCell.swift in Sources */,
+				E9FD92C122421A310079A039 /* HomeModel.swift in Sources */,
 				E973069B223FC1C8006AE040 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,7 +642,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9FD92BB224212F10079A039 /* ImageCollectionViewCell.swift in Sources */,
 				E97305F1223F7B54006AE040 /* NeoStoreTests.swift in Sources */,
+				E9FD92C222421A310079A039 /* HomeModel.swift in Sources */,
+				E9FD92C622421A740079A039 /* HomeViewModel.swift in Sources */,
+				E9FD9304224254530079A039 /* ProductModel.swift in Sources */,
+				E9FD92E522424F6F0079A039 /* ProductListView.swift in Sources */,
+				E9FD92FD224252EB0079A039 /* ProductCell.swift in Sources */,
+				E9FD92F4224251580079A039 /* ProductListModel.swift in Sources */,
+				E9FD92F8224251940079A039 /* ProductListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +658,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9FD92BC224212F10079A039 /* ImageCollectionViewCell.swift in Sources */,
 				E97305FC223F7B54006AE040 /* NeoStoreUITests.swift in Sources */,
+				E9FD92C322421A310079A039 /* HomeModel.swift in Sources */,
+				E9FD92C722421A740079A039 /* HomeViewModel.swift in Sources */,
+				E9FD9305224254530079A039 /* ProductModel.swift in Sources */,
+				E9FD92E622424F6F0079A039 /* ProductListView.swift in Sources */,
+				E9FD92FE224252EB0079A039 /* ProductCell.swift in Sources */,
+				E9FD92F5224251580079A039 /* ProductListModel.swift in Sources */,
+				E9FD92F9224251940079A039 /* ProductListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,6 +817,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74AK7XK4V2;
 				INFOPLIST_FILE = "$(SRCROOT)/NeoStore/App/Info.plist";
@@ -677,6 +827,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tejasmitna.NeoStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NeoStore/HeaderFile/NeoStore-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -686,6 +838,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74AK7XK4V2;
 				INFOPLIST_FILE = "$(SRCROOT)/NeoStore/App/Info.plist";
@@ -695,6 +848,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tejasmitna.NeoStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NeoStore/HeaderFile/NeoStore-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -705,6 +859,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74AK7XK4V2;
 				INFOPLIST_FILE = NeoStoreTests/Info.plist;
@@ -715,6 +870,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tejasmitna.NeoStoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NeoStore/New Group/NeoStoreTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeoStore.app/NeoStore";
@@ -726,6 +883,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74AK7XK4V2;
 				INFOPLIST_FILE = NeoStoreTests/Info.plist;
@@ -736,6 +894,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tejasmitna.NeoStoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NeoStore/New Group/NeoStoreTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeoStore.app/NeoStore";
@@ -746,6 +905,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74AK7XK4V2;
 				INFOPLIST_FILE = NeoStoreUITests/Info.plist;
@@ -756,6 +916,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tejasmitna.NeoStoreUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NeoStore/New Group/NeoStoreUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = NeoStore;
@@ -766,6 +928,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74AK7XK4V2;
 				INFOPLIST_FILE = NeoStoreUITests/Info.plist;
@@ -776,6 +939,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tejasmitna.NeoStoreUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NeoStore/New Group/NeoStoreUITests-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = NeoStore;

@@ -32,11 +32,15 @@ class LoginView: UIViewController {
     @IBAction func actionLogin(_ sender: UIButton) {
         textFieldUserName.resignFirstResponder()
         textFieldPassword.resignFirstResponder()
-        loginViewModel.Login(self, onSuccess: {
+        self.showSpinner(onView: self.view)
+        loginViewModel.Login(onSuccess: {
+            self.removeSpinner()
             print("SUCCESS")
-        }) {
+        }, onFailure: { (error) in
             print("FAILURE")
-        }
+            self.removeSpinner()
+            self.alert(message: error, title: "")
+        })
         
     }
     
@@ -45,6 +49,8 @@ class LoginView: UIViewController {
     }
     
     @IBAction func actionNewAccount(_ sender: UIButton) {
+        let registerView = RegisterView()
+        navigationController?.pushViewController(registerView, animated: true)
         
     }
     

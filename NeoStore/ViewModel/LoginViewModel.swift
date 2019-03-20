@@ -8,26 +8,22 @@
 
 import UIKit
 
-struct LoginViewModel {
+class LoginViewModel {
     
     var loginModel = LoginModel()
     
-    func Login(_ viewController: UIViewController ,onSuccess: @escaping() -> Void, onFailure: @escaping() -> Void) {
+    func Login(onSuccess: @escaping() -> Void, onFailure: @escaping(String) -> Void) {
         
         if loginModel.userName == "" {
-            DispatchQueue.main.async {
-                viewController.alert(message: "Username is empty", title: "")
-            }
+            onFailure("Username is empty")
             return
         } else if loginModel.password == "" {
-            DispatchQueue.main.async {
-                viewController.alert(message: "Password is empty", title: "")
-            }
+            onFailure("Password is empty")
             return
         } else {
             let parameter = ["email": loginModel.userName, "password": loginModel.password]
             APIManager.sharedInstance.postData(apiName: APIConstants.login, parameter: parameter , onSuccess: { (data) in
-//                onSuccess(data)
+                
                 let resultDict = Utilities.getJSON(APIConstants.login, data)
                 let statusCode = resultDict["status"] as! Int
 //                let message = resultDict["message"] as! String
@@ -40,26 +36,25 @@ struct LoginViewModel {
                     let email = data["email"] as! String
                     print(data)
                     
-//                    let accessToken = data["access_token"]
                     
-//                    let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: newAccountName, accessGroup: KeychainConfiguration.accessGroup)
-//
-//                    do {
-//                        // Save the password for the new item.
-//                        try passwordItem.savePassword(newPassword)
-//                    } catch {
-//                        print(error.localizedDescription)
-//                    }
+                    let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: email, accessGroup: KeychainConfiguration.accessGroup)
+
+                    do {
+                        // Save the password for the new item.
+                        try passwordItem.savePassword(accessToken)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                    onSuccess()
                     
                 } else {
-                    DispatchQueue.main.async {
-                        viewController.alert(message: userMessage, title: "")
-                    }
+                    onFailure(userMessage)
                     return
                 }
                 
             }) { (error) in
-//                onFailure(error)
+                onFailure(error.localizedDescription)
+                return
             }
         }
         

@@ -9,7 +9,7 @@
 import UIKit
 
 struct KeychainConfiguration {
-    static let serviceName = "MyAppService"
+    static let serviceName = "NeoSTORE_Tejas"
     
     /*
      Specifying an access group to use with `KeychainPasswordItem` instances

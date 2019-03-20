@@ -1,12 +1,11 @@
 //
-//  CustomTextField.swift
-//  NeoSTORE
+//  CustomButton.swift
+//  NeoStore
 //
-//  Created by webwerks1 on 05/11/18.
-//  Copyright © 2018 neosoft. All rights reserved.
+//  Created by webwerks on 20/03/19.
+//  Copyright © 2019 webwerks. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 @IBDesignable class CustomUITextField: UITextField {

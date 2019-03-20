@@ -9,6 +9,6 @@
 import UIKit
 
 struct LoginModel {
-    var userName = "tejas.mitna@neosofttech.com"
-    var password = "tejasm123"
+    var userName = ""
+    var password = ""
 }

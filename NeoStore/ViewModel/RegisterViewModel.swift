@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct RegisterViewModel {
+class RegisterViewModel {
 
      var registerModel = RegisterModel()
     

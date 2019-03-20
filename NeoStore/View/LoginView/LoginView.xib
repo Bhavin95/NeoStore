@@ -98,6 +98,11 @@
                     <state key="normal" title="LOGIN">
                         <color key="titleColor" red="0.91372549020000005" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="actionLogin:" destination="-1" eventType="touchUpInside" id="3SM-Ol-HqR"/>
                     </connections>

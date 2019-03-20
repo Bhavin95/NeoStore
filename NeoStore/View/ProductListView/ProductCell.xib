@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GOTHAM-MEDIUM.TTF">
+            <string>GothamMedium</string>
+        </array>
+        <array key="Gotham-Book.otf">
+            <string>Gotham-Book</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="92" id="KGk-i7-Jjw" customClass="ProductCell" customModule="NeoStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="83"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="82.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6qb-Qf-GsE">
+                        <rect key="frame" x="16" y="6.5" width="75" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="FvP-Mo-HI3"/>
+                            <constraint firstAttribute="width" constant="75" id="dWY-om-swS"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mw-r5-RLX">
+                        <rect key="frame" x="107" y="11" width="219" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="2Mw-r5-RLX" secondAttribute="height" multiplier="219:17" id="TTv-Zg-V8v"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="15"/>
+                        <color key="textColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRK-rV-xva">
+                        <rect key="frame" x="107" y="33" width="219" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="GRK-rV-xva" secondAttribute="height" multiplier="219:10" id="0Hs-cX-RRT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rs. 00,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wX-mI-0gH">
+                        <rect key="frame" x="107" y="55" width="143" height="16.5"/>
+                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="19"/>
+                        <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="APY-nq-3SG">
+                        <rect key="frame" x="266" y="58" width="60" height="11"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaW-gH-wQL">
+                                <rect key="frame" x="0.0" y="0.0" width="12" height="11"/>
+                                <state key="normal" image="star_unchek"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8A-rK-K49">
+                                <rect key="frame" x="12" y="0.0" width="12" height="11"/>
+                                <state key="normal" image="star_unchek"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMb-mt-eSd">
+                                <rect key="frame" x="24" y="0.0" width="12" height="11"/>
+                                <state key="normal" image="star_unchek"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4g-j3-xBm">
+                                <rect key="frame" x="36" y="0.0" width="12" height="11"/>
+                                <state key="normal" image="star_unchek"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VL-gM-oNE">
+                                <rect key="frame" x="48" y="0.0" width="12" height="11"/>
+                                <state key="normal" image="star_unchek"/>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="3r4-i0-cjY"/>
+                            <constraint firstAttribute="width" constant="60" id="M3r-Qd-x3n"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6qb-Qf-GsE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1uG-GP-fHD"/>
+                    <constraint firstItem="APY-nq-3SG" firstAttribute="leading" secondItem="0wX-mI-0gH" secondAttribute="trailing" constant="16" id="4NG-hx-s36"/>
+                    <constraint firstAttribute="trailing" secondItem="GRK-rV-xva" secondAttribute="trailing" constant="16" id="5DM-98-cmM"/>
+                    <constraint firstItem="0wX-mI-0gH" firstAttribute="top" secondItem="GRK-rV-xva" secondAttribute="bottom" constant="12" id="5Ro-pw-Sv7"/>
+                    <constraint firstAttribute="trailing" secondItem="2Mw-r5-RLX" secondAttribute="trailing" constant="16" id="BIe-xy-Bcd"/>
+                    <constraint firstAttribute="bottom" secondItem="0wX-mI-0gH" secondAttribute="bottom" constant="11" id="Mt1-vN-0Jv"/>
+                    <constraint firstAttribute="trailing" secondItem="APY-nq-3SG" secondAttribute="trailing" constant="16" id="R5m-z0-DNE"/>
+                    <constraint firstItem="2Mw-r5-RLX" firstAttribute="leading" secondItem="6qb-Qf-GsE" secondAttribute="trailing" constant="16" id="Rld-gu-Y2W"/>
+                    <constraint firstItem="GRK-rV-xva" firstAttribute="top" secondItem="2Mw-r5-RLX" secondAttribute="bottom" constant="5" id="afC-4N-1Vo"/>
+                    <constraint firstItem="6qb-Qf-GsE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="fDR-bO-4x4"/>
+                    <constraint firstItem="GRK-rV-xva" firstAttribute="leading" secondItem="6qb-Qf-GsE" secondAttribute="trailing" constant="16" id="geL-xN-Xn7"/>
+                    <constraint firstItem="0wX-mI-0gH" firstAttribute="leading" secondItem="6qb-Qf-GsE" secondAttribute="trailing" constant="16" id="irg-dd-n4f"/>
+                    <constraint firstItem="2Mw-r5-RLX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="sgZ-V2-gZX"/>
+                    <constraint firstItem="APY-nq-3SG" firstAttribute="centerY" secondItem="0wX-mI-0gH" secondAttribute="centerY" id="zOn-20-fYR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="150.40000000000001" y="146.17691154422789"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="star_unchek" width="44" height="44"/>
+    </resources>
+</document>
