@@ -45,4 +45,41 @@ class ProductListViewModel {
         return productList.count
     }
     
+    func getProductID(index: Int) -> Int {
+        return productList[index].id!
+    }
+    
+    func getProductImageURL(index: Int) -> String {
+        
+        return productList[index].image!
+    }
+    
+    func getProductName(index: Int) -> String {
+        
+        return productList[index].name!
+    }
+    
+    func getProducer(index: Int) -> String {
+        
+        return productList[index].producer!
+    }
+    
+    func getPrice(index: Int) -> Int {
+        
+        return productList[index].cost!
+    }
+    
+    func getRating(index: Int) -> Int {
+        return productList[index].rating!
+    }
+    
+    func getStarImage(starNumber: Int, index: Int) -> UIImage {
+        if productList[index].rating! >= starNumber {
+            return UIImage(named: "star_check")!
+        } else {
+            return UIImage(named: "star_unchek")!
+        }
+    }
 }
+
+

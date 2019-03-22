@@ -31,4 +31,8 @@ class HomeViewModel {
         
     }
     
+    func getProductCatagoryName(_ index: Int) -> String {
+        return homeModel.product[index]
+    }
+    
 }

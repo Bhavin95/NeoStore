@@ -26,7 +26,7 @@ class HomeView: UIViewController {
         super.viewDidLoad()
 
         title = "NeoSTORE"
-        
+        homeViewModel.homeModel.product = ["Tabels", "Sofa", "Chair", "CupBoard"]
         homeViewModel.homeModel.sliderImage = ["slider_img1", "slider_img2", "slider_img3", "slider_img4"]
         homeViewModel.homeModel.productImage = ["tableicon", "sofaicon", "chairsicon", "cupboardicon"]
         pageControl.numberOfPages = homeViewModel.homeModel.sliderImage.count
@@ -106,7 +106,7 @@ extension HomeView: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
             
         } else {
             let productListView = ProductListView()
-            productListView.myInit(String(indexPath.row + 1))
+            productListView.myInit(String(indexPath.row + 1), homeViewModel.getProductCatagoryName(indexPath.row))
             navigationController?.pushViewController(productListView, animated: true)
         }
         

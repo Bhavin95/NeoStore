@@ -1,14 +1,30 @@
 //
-//  ProductModel.swift
+//  ProductDetailModel.swift
 //  NeoStore
 //
-//  Created by webwerks on 20/03/19.
+//  Created by webwerks on 22/03/19.
 //  Copyright © 2019 webwerks. All rights reserved.
 //
 
 import UIKit
 
-struct ProductModel: Codable {
+struct ProductImages: Codable {
+    var id: Int?
+    var productId: Int?
+    var image: String?
+    var created: String?
+    var modified: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case productId = "product_id"
+        case image
+        case created
+        case modified
+    }
+}
+
+struct ProductDetailsModel: Codable {
     
     var id: Int?
     var categoryId: Int?
@@ -18,7 +34,7 @@ struct ProductModel: Codable {
     var cost: Int?
     var rating: Int?
     var viewCount: Int
-    var image: String?
+    var images: [ProductImages]?
     var created: String?
     var modified: String?
     
@@ -31,10 +47,16 @@ struct ProductModel: Codable {
         case cost
         case rating
         case viewCount = "view_count"
-        case image = "product_images"
+        case images = "product_images"
         case created
         case modified
         
     }
     
+}
+
+struct ProductDetailModel: Codable {
+    var status: Int?
+    var data: ProductDetailsModel
+
 }

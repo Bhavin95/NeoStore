@@ -12,5 +12,5 @@ struct HomeModel {
 
     var sliderImage = [String]()
     var productImage = [String]()
-    
+    var product = [String]()
 }

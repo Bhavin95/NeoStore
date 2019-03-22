@@ -9,6 +9,19 @@
 import UIKit
 
 class ProductCell: UITableViewCell {
+    
+    //MARK: Outlets
+    
+    @IBOutlet weak var imageViewProduct: UIImageView!
+    @IBOutlet weak var labelProductName: UILabel!
+    @IBOutlet weak var labelProducer: UILabel!
+    @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var buttonStar1: UIButton!
+    @IBOutlet weak var buttonStar2: UIButton!
+    @IBOutlet weak var buttonStar3: UIButton!
+    @IBOutlet weak var buttonStar4: UIButton!
+    @IBOutlet weak var buttonStar5: UIButton!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

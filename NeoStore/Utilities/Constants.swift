@@ -38,3 +38,7 @@ class APIConstants {
     static let orderList = "orderList"
     static let orderDetail = "orderDetail"
 }
+
+class Constants {
+    static let appDelegate = UIApplication.shared.delegate as! AppDelegate
+}

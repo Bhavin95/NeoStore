@@ -32,15 +32,18 @@ class LoginView: UIViewController {
     @IBAction func actionLogin(_ sender: UIButton) {
         textFieldUserName.resignFirstResponder()
         textFieldPassword.resignFirstResponder()
-        self.showSpinner(onView: self.view)
-        loginViewModel.Login(onSuccess: {
-            self.removeSpinner()
-            print("SUCCESS")
-        }, onFailure: { (error) in
-            print("FAILURE")
-            self.removeSpinner()
-            self.alert(message: error, title: "")
-        })
+        if ReachabilityChecker.sharedInstance.isConnectedToNetwork() {
+            self.showSpinner(onView: self.view)
+            loginViewModel.Login(onSuccess: {
+                self.removeSpinner()
+                print("SUCCESS")
+            }, onFailure: { (error) in
+                print("FAILURE")
+                self.removeSpinner()
+                self.alert(message: error, title: "")
+            })
+        }
+        
         
     }
     
