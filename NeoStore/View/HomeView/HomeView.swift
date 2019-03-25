@@ -19,6 +19,8 @@ class HomeView: UIViewController {
     var homeViewModel = HomeViewModel()
     var count = 0
     weak var timer: Timer?
+    var sideMenuView = SideMenuView()
+    var menuShowing = false
     
     //MARK: View LifeCycle
 
@@ -26,16 +28,16 @@ class HomeView: UIViewController {
         super.viewDidLoad()
 
         title = "NeoSTORE"
-        homeViewModel.homeModel.product = ["Tabels", "Sofa", "Chair", "CupBoard"]
-        homeViewModel.homeModel.sliderImage = ["slider_img1", "slider_img2", "slider_img3", "slider_img4"]
-        homeViewModel.homeModel.productImage = ["tableicon", "sofaicon", "chairsicon", "cupboardicon"]
-        pageControl.numberOfPages = homeViewModel.homeModel.sliderImage.count
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(menu))
+        
         pageControl.hidesForSinglePage = true
         collectionViewBanner.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
         collectionViewProduct.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        pageControl.numberOfPages = homeViewModel.getCount(true)
         startTimer()
     }
     
@@ -44,6 +46,18 @@ class HomeView: UIViewController {
     }
     
     //MARK: Functions
+    
+    @objc func menu() {
+        menuShowing = !menuShowing
+        if menuShowing {
+            showMenu()
+        } else {
+            hideMenu()
+        }
+        
+//        let sideMenuView = SideMenuView()
+//        navigationController?.pushViewController(sideMenuView, animated: true)
+    }
     
     @objc func timerHandler(_ timer: Timer) {
         if count < 4 {
@@ -70,6 +84,19 @@ class HomeView: UIViewController {
         timer?.invalidate()
     }
     
+    func showMenu() {
+        UIView.animate(withDuration: 0.5) {
+            self.addChild(self.sideMenuView)
+            self.view.addSubview(self.sideMenuView.view)
+            
+        }
+    }
+    func hideMenu() {
+        UIView.animate(withDuration: 0.5) {
+           self.sideMenuView.view.removeFromSuperview()
+            
+        }
+    }
 }
 
 //MARK: Extension
@@ -106,7 +133,7 @@ extension HomeView: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
             
         } else {
             let productListView = ProductListView()
-            productListView.myInit(String(indexPath.row + 1), homeViewModel.getProductCatagoryName(indexPath.row))
+            productListView.myInit(homeViewModel.getProductId(indexPath.row), homeViewModel.getProductCatagoryName(indexPath.row))
             navigationController?.pushViewController(productListView, animated: true)
         }
         

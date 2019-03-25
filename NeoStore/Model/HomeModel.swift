@@ -8,9 +8,14 @@
 
 import UIKit
 
+struct Product {
+    var id: String?
+    var name: String?
+    var image: String?
+}
+
 struct HomeModel {
 
-    var sliderImage = [String]()
-    var productImage = [String]()
-    var product = [String]()
+    var sliderImage: [String]
+    var product: [Product]
 }

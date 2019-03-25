@@ -34,11 +34,20 @@ class ProductListView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = productCatagoryName
+        
         tableView.register(UINib(nibName: productCell, bundle: nil), forCellReuseIdentifier: productCell)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getProductList()
+        
+    }
+    
+    //MARK: Functions
+
+    func getProductList() {
         if ReachabilityChecker.sharedInstance.isConnectedToNetwork() {
             self.showSpinner(onView: self.view)
             productListViewModel.getProductList(parameter: ["product_category_id": productCatagoryID!], onSuccess: {
@@ -51,11 +60,7 @@ class ProductListView: UIViewController {
                 self.alert(message: error, title: "")
             }
         }
-        
     }
-    
-    //MARK: Functions
-
 
 }
 
@@ -91,7 +96,7 @@ extension ProductListView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let productDetailView = ProductDetailView()
-        productDetailView.myInit(String(productListViewModel.getProductID(index: indexPath.row)), productListViewModel.getProductName(index: indexPath.row), productCatagoryName!)
+        productDetailView.myInit(String(productListViewModel.getProductID(index: indexPath.row)), productCatagoryName!, productListViewModel.getProductName(index: indexPath.row))
         navigationController?.pushViewController(productDetailView, animated: true)
     }
     

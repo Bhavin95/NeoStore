@@ -42,6 +42,44 @@ class ProductDetailViewModel {
     
     }
     
+    func addToCart(parameter:[String:Any], onSuccess: @escaping(String) -> Void, onFailure: @escaping(String) -> Void) {
+        APIManager.sharedInstance.postData(apiName: APIConstants.addToCart, parameter: parameter, onSuccess: { (data) in
+            let resultDict = Utilities.getJSON(APIConstants.login, data)
+            let statusCode = resultDict["status"] as! Int
+            let userMessage = resultDict["user_msg"] as! String
+            
+            if statusCode == 200 {
+                onSuccess(userMessage)
+                
+            } else {
+                onFailure(userMessage)
+                return
+            }
+        }) { (error) in
+            onFailure(error.localizedDescription)
+            return
+        }
+    }
+    
+    func addProductRating(parameter:[String:Any], onSuccess: @escaping(String) -> Void, onFailure: @escaping(String) -> Void) {
+            APIManager.sharedInstance.postData(apiName: APIConstants.productRating, parameter: parameter, onSuccess: { (data) in
+                let resultDict = Utilities.getJSON(APIConstants.productRating, data)
+                let statusCode = resultDict["status"] as! Int
+                let userMessage = resultDict["user_msg"] as! String
+                
+                if statusCode == 200 {
+                    onSuccess(userMessage)
+                    
+                } else {
+                    onFailure(userMessage)
+                    return
+                }
+            }) { (error) in
+                onFailure(error.localizedDescription)
+                return
+            }
+    }
+    
     func getProductID() -> Int {
         return productDetail.id!
     }

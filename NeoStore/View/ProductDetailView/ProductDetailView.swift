@@ -8,9 +8,19 @@
 
 import UIKit
 
+@objc protocol ProductDetailViewDelegate: class {
+    
+    func buyNow(_ quantity: String)
+    func rateNow(_ rating: String)
+    func cancel()
+    
+    
+}
+
 class ProductDetailView: UIViewController {
     
     //MARK: Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet var viewHeader: UIView!
@@ -39,6 +49,7 @@ class ProductDetailView: UIViewController {
     var productCatagoryName: String?
     var cellSelected = 0
     lazy var productDetailViewModel = ProductDetailViewModel()
+    var transperentView = UIView()
     
     //MARK: Initialize
     
@@ -58,10 +69,17 @@ class ProductDetailView: UIViewController {
         backgroundView.setBorder(.lightGray, 0.5, 0.5, 6.0, 0.5, 0.5)
         tableView.tableHeaderView = viewHeader
         tableView.tableFooterView = viewFooter
+
         collectionViewProduct.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        getData()
+    }
+    
+    //MARK: Functions
+    
+    func getData() {
         if ReachabilityChecker.sharedInstance.isConnectedToNetwork() {
             self.showSpinner(onView: self.view)
             productDetailViewModel.getProductDetail(parameter: ["product_id": productID!], onSuccess: {
@@ -77,8 +95,6 @@ class ProductDetailView: UIViewController {
         }
     }
     
-    //MARK: Functions
-    
     func setup() {
         labelProductName.text = productDetailViewModel.getProductName()
         labelProductCatagory.text = "Catagory - " +  productCatagoryName!
@@ -92,6 +108,35 @@ class ProductDetailView: UIViewController {
         buttonStar4.setImage(productDetailViewModel.getStarImage(starNumber: 4), for: .normal)
         buttonStar5.setImage(productDetailViewModel.getStarImage(starNumber: 5), for: .normal)
         collectionViewProduct.reloadData()
+        tableView.reloadData()
+    }
+    
+    //MARK: Actions
+    
+    @IBAction func actionBuyNow(_ sender: UIButton) {
+        transperentView =  UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        transperentView.backgroundColor = .lightGray
+        transperentView.alpha = 0.5
+        self.view.addSubview(transperentView)
+        let buyProductView = BuyProductView()
+        buyProductView.modalPresentationStyle = .overCurrentContext
+        buyProductView.modalTransitionStyle = .crossDissolve
+        buyProductView.delegate = self
+        buyProductView.myInit(productDetailViewModel.getProductName(), productDetailViewModel.getProductImageURL(0))
+        present(buyProductView, animated: true, completion: nil)
+    }
+    
+    @IBAction func actionRate(_ sender: UIButton) {
+        transperentView =  UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        transperentView.backgroundColor = .lightGray
+        transperentView.alpha = 0.5
+        self.view.addSubview(transperentView)
+        let rateProductView = RateProductView()
+        rateProductView.modalPresentationStyle = .overCurrentContext
+        rateProductView.modalTransitionStyle = .crossDissolve
+        rateProductView.delegate = self
+        rateProductView.myInit(productDetailViewModel.getProductName(), productDetailViewModel.getProductImageURL(0), String(productDetailViewModel.getRating()))
+        present(rateProductView, animated: true, completion: nil)
     }
     
 }
@@ -120,6 +165,7 @@ extension ProductDetailView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+
 }
 
 extension ProductDetailView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -151,7 +197,7 @@ extension ProductDetailView: UICollectionViewDataSource, UICollectionViewDelegat
         cell.imageViewProduct.setBorder(UIColor(rgb: 0xE91B1A), 2, 2, 0, 0, 0)
         imageViewProduct.image = cell.imageViewProduct.image
         
-        collectionView.reloadData()
+        collectionView.reloadSections(IndexSet(arrayLiteral: 0))
       
     }
     
@@ -160,4 +206,43 @@ extension ProductDetailView: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (collectionView.frame.size.width - 20) / 3, height: collectionView.frame.size.height)
     }
+}
+
+extension ProductDetailView: ProductDetailViewDelegate {
+   
+    func cancel() {
+        transperentView.removeFromSuperview()
+    }
+    
+    func buyNow(_ quantity: String) {
+        transperentView.removeFromSuperview()
+        if ReachabilityChecker.sharedInstance.isConnectedToNetwork() {
+            self.showSpinner(onView: self.view)
+            productDetailViewModel.addToCart(parameter: ["product_id": Int(productID!)!, "quantity": Int(quantity)!], onSuccess: { (success) in
+                self.removeSpinner()
+                self.alert(message: success, title: "")
+            }) { (error) in
+                self.removeSpinner()
+                self.alert(message: error, title: "")
+            }
+        }
+        
+    }
+    
+    func rateNow(_ rating: String) {
+        transperentView.removeFromSuperview()
+        if ReachabilityChecker.sharedInstance.isConnectedToNetwork() {
+            self.showSpinner(onView: self.view)
+            productDetailViewModel.addProductRating(parameter: ["product_id": Int(productID!)!, "rating": Int(rating)!], onSuccess: { (success) in
+                self.removeSpinner()
+                self.alert(message: success, title: "")
+                self.getData()
+            }) { (error) in
+                self.removeSpinner()
+                self.alert(message: error, title: "")
+            }
+        }
+        
+    }
+    
 }
