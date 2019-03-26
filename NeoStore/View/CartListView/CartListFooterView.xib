@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GOTHAM-MEDIUM.TTF">
+            <string>GothamMedium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="qdP-cU-4ug" customClass="CartListFooterView" customModule="NeoStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="429" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNI-GD-rR2">
+                    <rect key="frame" x="0.0" y="0.0" width="429" height="92"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZE-fL-H2n">
+                            <rect key="frame" x="34" y="37" width="71.5" height="18"/>
+                            <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₹000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZc-Az-nTv">
+                            <rect key="frame" x="306.5" y="37" width="88.5" height="18"/>
+                            <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="rZc-Az-nTv" firstAttribute="centerY" secondItem="YNI-GD-rR2" secondAttribute="centerY" id="14h-Mf-9SB"/>
+                        <constraint firstAttribute="trailing" secondItem="rZc-Az-nTv" secondAttribute="trailing" constant="34" id="SzT-MM-oma"/>
+                        <constraint firstItem="sZE-fL-H2n" firstAttribute="leading" secondItem="YNI-GD-rR2" secondAttribute="leading" constant="34" id="jOf-YN-hlo"/>
+                        <constraint firstItem="sZE-fL-H2n" firstAttribute="centerY" secondItem="YNI-GD-rR2" secondAttribute="centerY" id="m1R-S0-3a1"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3a6-gq-Bl5">
+                    <rect key="frame" x="34" y="126" width="361" height="50"/>
+                    <color key="backgroundColor" red="0.91372549020000005" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="B5b-Xj-fEb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="25"/>
+                    <state key="normal" title="ORDER NOW">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="3a6-gq-Bl5" firstAttribute="leading" secondItem="Eg7-lT-yGn" secondAttribute="leading" constant="34" id="Fft-p2-xik"/>
+                <constraint firstItem="Eg7-lT-yGn" firstAttribute="bottom" secondItem="3a6-gq-Bl5" secondAttribute="bottom" constant="24" id="Rxk-HP-3vA"/>
+                <constraint firstItem="YNI-GD-rR2" firstAttribute="trailing" secondItem="Eg7-lT-yGn" secondAttribute="trailing" id="lTZ-kO-b6E"/>
+                <constraint firstItem="Eg7-lT-yGn" firstAttribute="trailing" secondItem="3a6-gq-Bl5" secondAttribute="trailing" constant="34" id="n3Z-2X-K7G"/>
+                <constraint firstItem="YNI-GD-rR2" firstAttribute="top" secondItem="Eg7-lT-yGn" secondAttribute="top" id="uDQ-Va-E8p"/>
+                <constraint firstItem="3a6-gq-Bl5" firstAttribute="top" secondItem="YNI-GD-rR2" secondAttribute="bottom" constant="34" id="vvb-NH-WuK"/>
+                <constraint firstItem="YNI-GD-rR2" firstAttribute="leading" secondItem="Eg7-lT-yGn" secondAttribute="leading" id="zPg-DS-eDz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Eg7-lT-yGn"/>
+            <point key="canvasLocation" x="869.60000000000002" y="-42.278860569715143"/>
+        </view>
+    </objects>
+</document>

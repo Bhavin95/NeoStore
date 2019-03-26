@@ -8,6 +8,12 @@
 
 import UIKit
 
+@objc protocol HomeViewDelegate: class {
+    
+    func navigate(index: Int)
+    
+}
+
 class HomeView: UIViewController {
     
     //MARK: Outlets
@@ -28,7 +34,8 @@ class HomeView: UIViewController {
         super.viewDidLoad()
 
         title = "NeoSTORE"
-        
+       
+        sideMenuView.delegate = self
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(menu))
         
         pageControl.hidesForSinglePage = true
@@ -45,6 +52,12 @@ class HomeView: UIViewController {
         stopTimer()
     }
     
+    override func viewDidLayoutSubviews() {
+        let frame = CGRect(x: 0, y: 0, width: view.bounds.size.width - (view.bounds.size.width / 5), height: view.bounds.size.height)
+        sideMenuView.view.frame = frame
+        addChild(sideMenuView)
+    }
+    
     //MARK: Functions
     
     @objc func menu() {
@@ -54,9 +67,6 @@ class HomeView: UIViewController {
         } else {
             hideMenu()
         }
-        
-//        let sideMenuView = SideMenuView()
-//        navigationController?.pushViewController(sideMenuView, animated: true)
     }
     
     @objc func timerHandler(_ timer: Timer) {
@@ -86,11 +96,15 @@ class HomeView: UIViewController {
     
     func showMenu() {
         UIView.animate(withDuration: 0.5) {
-            self.addChild(self.sideMenuView)
+            let transition = CATransition()
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromLeft
+            self.view.layer.add(transition, forKey: nil)
             self.view.addSubview(self.sideMenuView.view)
             
         }
     }
+    
     func hideMenu() {
         UIView.animate(withDuration: 0.5) {
            self.sideMenuView.view.removeFromSuperview()
@@ -162,4 +176,20 @@ extension HomeView: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         startTimer()
     }
 
+}
+
+extension HomeView: HomeViewDelegate {
+    func navigate(index: Int) {
+        switch index {
+        case 0:
+            if menuShowing {
+                hideMenu()
+            }
+            let cartListView = CartListView()
+            navigationController?.pushViewController(cartListView, animated: true)
+        default:
+            break
+        }
+    }
+    
 }
