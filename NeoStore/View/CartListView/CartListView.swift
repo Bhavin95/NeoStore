@@ -14,9 +14,7 @@ class CartListView: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var viewFooter: UIView!
     
-    @IBOutlet weak var labelTotalPrice: UILabel!
     //MARK: Constants and Variable
     
     lazy var cartListViewModel = CartListViewModel()
@@ -28,7 +26,7 @@ class CartListView: UIViewController {
         super.viewDidLoad()
         
         title = "My Cart"
-        
+        tableView.isHidden = true
 //        tableView.tableFooterView = viewFooter
         tableView.register(UINib(nibName: "CartListFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "CartListFooterView")
         tableView.register(UINib(nibName: cartListCell, bundle: nil), forCellReuseIdentifier: cartListCell)
@@ -48,9 +46,7 @@ class CartListView: UIViewController {
                 self.removeSpinner()
                 
                 DispatchQueue.main.async {
-                    if let total = self.cartListViewModel.cartListModel?.total {
-                        self.labelTotalPrice.text = String(total)
-                    }
+                    self.tableView.isHidden = false
                     self.tableView.reloadData()
                 }
             }) { (error) in
@@ -105,7 +101,7 @@ class CartListView: UIViewController {
         
     }
     
-    @IBAction func actionOrderNow(_ sender: UIButton) {
+     @objc func actionOrderNow(_ sender: UIButton) {
         
     }
     
@@ -140,14 +136,22 @@ extension CartListView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let CartListFooterView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CartListFooterView")
-        return CartListFooterView
+        let cartListFooterView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CartListFooterView") as! CartListFooterView
+        if let total = cartListViewModel.cartListModel?.total {
+            cartListFooterView.labelPrice.text = String(total)
+        }
+        cartListFooterView.buttonOrderNow.addTarget(self, action: #selector(actionOrderNow(_:)), for: .touchUpInside)
+        return cartListFooterView
     }
     
     //MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 200
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

@@ -8,8 +8,12 @@
 
 import UIKit
 
-class CartListFooterView: UIView {
+class CartListFooterView: UITableViewHeaderFooterView {
 
-  
+    //MARK: Outlets
+    
+    @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var buttonOrderNow: UIButton!
+    
 
 }
