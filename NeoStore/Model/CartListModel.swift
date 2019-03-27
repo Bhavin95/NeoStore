@@ -28,7 +28,9 @@ struct CartModel: Codable {
 
 struct CartListModel: Codable {
     var status: Int?
-    var data: [CartModel]
+    var data: [CartModel]?
     var count: Int?
     var total: Int?
+    var message: String?
+    var user_msg: String?
 }

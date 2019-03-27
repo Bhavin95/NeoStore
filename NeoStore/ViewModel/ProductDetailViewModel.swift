@@ -14,25 +14,20 @@ class ProductDetailViewModel {
     
     func getProductDetail(parameter:[String:Any], onSuccess: @escaping() -> Void, onFailure: @escaping(String) -> Void) {
         APIManager.sharedInstance.getData(apiName: APIConstants.productDetails, parameter: parameter, onSuccess: { (data) in
-            let resultDict = Utilities.getJSON(APIConstants.login, data)
-            let statusCode = resultDict["status"] as! Int
-            
-            if statusCode == 200 {
-                do {
-                    let jsonDecoder  = JSONDecoder()
-                    let productDetail = try jsonDecoder.decode(ProductDetailModel.self, from: data)
+            do {
+                let jsonDecoder  = JSONDecoder()
+                let productDetail = try jsonDecoder.decode(ProductDetailModel.self, from: data)
+                
+                if productDetail.status! == 200 {
                     self.productDetail = productDetail.data
                     onSuccess()
                     return
-                    
-                } catch {
-                    onFailure(error.localizedDescription)
+                } else {
+                    onFailure(productDetail.user_msg!)
+                    return
                 }
-                
-            } else {
-                //                let message = resultDict["message"] as! String
-                let userMessage = resultDict["user_msg"] as! String
-                onFailure(userMessage)
+            } catch {
+                onFailure(error.localizedDescription)
                 return
             }
         }) { (error) in

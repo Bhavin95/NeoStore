@@ -8,7 +8,9 @@
 
 import UIKit
 
-struct LoginModel {
-    var userName = ""
-    var password = ""
+struct LoginModel: Codable {
+    var status: Int?
+    var data: UserModel?
+    var message: String?
+    var user_msg: String?
 }

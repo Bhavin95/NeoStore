@@ -27,6 +27,19 @@ class LoginView: UIViewController {
         
     }
     
+    //MARK: Functions
+    
+    func saveCredentials() {
+        let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: loginViewModel.userModel.email!, accessGroup: KeychainConfiguration.accessGroup)
+        
+        do {
+            // Save the password for the new item.
+            try passwordItem.savePassword(loginViewModel.userModel.access_token!)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     //MARK: Actions
     
     @IBAction func actionLogin(_ sender: UIButton) {
@@ -34,17 +47,16 @@ class LoginView: UIViewController {
         textFieldPassword.resignFirstResponder()
         if ReachabilityChecker.sharedInstance.isConnectedToNetwork() {
             self.showSpinner(onView: self.view)
-            loginViewModel.Login(onSuccess: {
-                self.removeSpinner()
+            loginViewModel.Login(parameter: ["email": self.textFieldUserName.text!, "password": self.textFieldPassword.text!], onSuccess: {
                 print("SUCCESS")
+                self.removeSpinner()
+//                self.saveCredentials()
             }, onFailure: { (error) in
                 print("FAILURE")
                 self.removeSpinner()
                 self.alert(message: error, title: "")
             })
         }
-        
-        
     }
     
     @IBAction func actionForgot(_ sender: UIButton) {
@@ -59,25 +71,3 @@ class LoginView: UIViewController {
     
 }
 
-//MARK: Extension
-
-extension LoginView: UITextFieldDelegate {
-    
-    //MARK: UITextFieldDelegate
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        switch textField {
-        case textFieldUserName:
-            loginViewModel.loginModel.userName = textField.text!
-        case textFieldPassword:
-            loginViewModel.loginModel.password = textField.text!
-        default:
-            break
-        }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}

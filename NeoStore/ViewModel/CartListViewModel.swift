@@ -10,32 +10,25 @@ import UIKit
 
 class CartListViewModel: NSObject {
     
-    var cartList = [CartModel]()
-    var cartListModel: CartListModel?
+    var cartList: [CartModel]?
+    var cartListModel: CartListModel!
     
     func getCartList(parameter:[String:Any], onSuccess: @escaping() -> Void, onFailure: @escaping(String) -> Void) {
         APIManager.sharedInstance.getData(apiName: APIConstants.listCart, parameter: parameter, onSuccess: { (data) in
-            let resultDict = Utilities.getJSON(APIConstants.listCart, data)
-            let statusCode = resultDict["status"] as! Int
-            
-            if statusCode == 200 {
-                do {
-                    let jsonDecoder  = JSONDecoder()
-                    self.cartListModel = try jsonDecoder.decode(CartListModel.self, from: data)
-                    self.cartList = self.cartListModel!.data
+            do {
+                let jsonDecoder  = JSONDecoder()
+                self.cartListModel = try jsonDecoder.decode(CartListModel.self, from: data)
+                
+                if self.cartListModel.status! == 200 {
+                    self.cartList = self.cartListModel.data!
                     onSuccess()
                     return
-                    
-                } catch {
-//                    onFailure(error.localizedDescription)
-                    let userMessage = resultDict["user_msg"] as! String
-                    onFailure(userMessage)
+                } else {
+                    onFailure(self.cartListModel.user_msg!)
+                    return
                 }
-                
-            } else {
-                //                let message = resultDict["message"] as! String
-                let userMessage = resultDict["user_msg"] as! String
-                onFailure(userMessage)
+            } catch {
+                onFailure(error.localizedDescription)
                 return
             }
         }) { (error) in
@@ -72,7 +65,6 @@ class CartListViewModel: NSObject {
                 onSuccess(userMessage)
                 return
             } else {
-                //                let message = resultDict["message"] as! String
                 onFailure(userMessage)
                 return
             }
@@ -83,38 +75,43 @@ class CartListViewModel: NSObject {
     }
     
     func getCartListCount() -> Int {
-        return cartList.count
+        if cartList != nil {
+            return cartList!.count
+        } else {
+            return 0
+        }
+        
     }
     
     func getProductId(index: Int) -> Int {
-        return cartList[index].product_id!
+        return cartList![index].product_id!
     }
     
     func getProductImage(index: Int) -> String {
-        return cartList[index].product.product_images!
+        return cartList![index].product.product_images!
     }
  
     func getProductName(index: Int) -> String {
-        return cartList[index].product.name!
+        return cartList![index].product.name!
     }
     
     func getProductCategoryName(index: Int) -> String {
-        return cartList[index].product.product_category!
+        return cartList![index].product.product_category!
     }
     
     func getProductCost(index: Int) -> Int {
-        return cartList[index].product.cost!
+        return cartList![index].product.cost!
     }
     
     func getProductQuantity(index: Int) -> Int {
-        return cartList[index].quantity!
+        return cartList![index].quantity!
     }
     
     func deleteProduct(index: Int) {
-        cartList.remove(at: index)
+        cartList!.remove(at: index)
     }
     
     func editProductQuantity(index: Int, quantity: Int) {
-        cartList[index].quantity = quantity
+        cartList![index].quantity = quantity
     }
 }

@@ -10,31 +10,27 @@ import UIKit
 
 class ProductListViewModel {
 
-    var productList = [ProductModel]()
+    var productList: [ProductModel]?
     
     func getProductList(parameter:[String:Any], onSuccess: @escaping() -> Void, onFailure: @escaping(String) -> Void) {
         APIManager.sharedInstance.getData(apiName: APIConstants.productList, parameter: parameter, onSuccess: { (data) in
-            let resultDict = Utilities.getJSON(APIConstants.login, data)
-            let statusCode = resultDict["status"] as! Int
-            
-            if statusCode == 200 {
-                do {
-                    let jsonDecoder  = JSONDecoder()
-                    let productListModel = try jsonDecoder.decode(ProductListModel.self, from: data)
-                    self.productList = productListModel.data
+            do {
+                let jsonDecoder  = JSONDecoder()
+                let productListModel = try jsonDecoder.decode(ProductListModel.self, from: data)
+                
+                if productListModel.status! == 200 {
+                    self.productList = productListModel.data!
                     onSuccess()
                     return
-                    
-                } catch {
-                    onFailure(error.localizedDescription)
+                } else {
+                    onFailure(productListModel.user_msg!)
+                    return
                 }
-                
-            } else {
-//                let message = resultDict["message"] as! String
-                let userMessage = resultDict["user_msg"] as! String
-                onFailure(userMessage)
+            } catch {
+                onFailure(error.localizedDescription)
                 return
             }
+            
         }) { (error) in
             onFailure(error.localizedDescription)
             return
@@ -42,39 +38,43 @@ class ProductListViewModel {
     }
     
     func getProductCount() -> Int {
-        return productList.count
+        if productList != nil {
+            return productList!.count
+        } else {
+            return 0
+        }
     }
     
     func getProductID(index: Int) -> Int {
-        return productList[index].id!
+        return productList![index].id!
     }
     
     func getProductImageURL(index: Int) -> String {
         
-        return productList[index].image!
+        return productList![index].image!
     }
     
     func getProductName(index: Int) -> String {
         
-        return productList[index].name!
+        return productList![index].name!
     }
     
     func getProducer(index: Int) -> String {
         
-        return productList[index].producer!
+        return productList![index].producer!
     }
     
     func getPrice(index: Int) -> Int {
         
-        return productList[index].cost!
+        return productList![index].cost!
     }
     
     func getRating(index: Int) -> Int {
-        return productList[index].rating!
+        return productList![index].rating!
     }
     
     func getStarImage(starNumber: Int, index: Int) -> UIImage {
-        if productList[index].rating! >= starNumber {
+        if productList![index].rating! >= starNumber {
             return UIImage(named: "star_check")!
         } else {
             return UIImage(named: "star_unchek")!

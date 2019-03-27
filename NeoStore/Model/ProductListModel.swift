@@ -41,6 +41,7 @@ struct ProductModel: Codable {
 
 struct ProductListModel: Codable {
     var status: Int?
-    var data: [ProductModel]
-   
+    var data: [ProductModel]?
+    var message: String?
+    var user_msg: String?
 }
