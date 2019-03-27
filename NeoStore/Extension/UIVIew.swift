@@ -12,17 +12,17 @@ extension UIView {
     
     func setBorder( _ color: UIColor , _ width: CGFloat, _ height: CGFloat, _ cornerRadius: CGFloat, _ shadowRadius: CGFloat, _ shadowOpacity: Float ) {
         // corner radius
-        self.layer.cornerRadius = cornerRadius
+        layer.cornerRadius = cornerRadius
         
         // border
-        self.layer.borderWidth = width
-        self.layer.borderColor = color.cgColor
+        layer.borderWidth = width
+        layer.borderColor = color.cgColor
         
         // shadow
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: width, height: height)
-        self.layer.shadowOpacity = shadowOpacity
-        self.layer.shadowRadius = shadowRadius
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: width, height: height)
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowRadius = shadowRadius
     }
     
 }

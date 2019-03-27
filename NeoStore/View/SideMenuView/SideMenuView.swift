@@ -49,6 +49,7 @@ extension SideMenuView: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: sideMenuCell, for: indexPath) as! SideMenuCell
         cell.imageViewProduct.image = UIImage(named: image[indexPath.row])
         cell.labelName.text = name[indexPath.row]
+        cell.labelCount.makeRound()
         if indexPath.row == 0 {
             cell.labelCount.isHidden = false
         } else {

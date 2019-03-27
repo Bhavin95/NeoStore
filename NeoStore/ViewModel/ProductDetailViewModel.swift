@@ -10,7 +10,7 @@ import UIKit
 
 class ProductDetailViewModel {
     
-    var productDetail: ProductDetailsModel!
+    var productDetail: ProductDetailsModel?
     
     func getProductDetail(parameter:[String:Any], onSuccess: @escaping() -> Void, onFailure: @escaping(String) -> Void) {
         APIManager.sharedInstance.getData(apiName: APIConstants.productDetails, parameter: parameter, onSuccess: { (data) in
@@ -76,31 +76,31 @@ class ProductDetailViewModel {
     }
     
     func getProductID() -> Int {
-        return productDetail.id!
+        return productDetail!.id!
     }
     
     func getProductName() -> String {
         
-        return productDetail.name!
+        return productDetail!.name!
     }
     
     func getProducer() -> String {
         
-        return productDetail.producer!
+        return productDetail!.producer!
     }
     
     func getPrice() -> Int {
         
-        return productDetail.cost!
+        return productDetail!.cost!
     }
     
     func getRating() -> Int {
-        return productDetail.rating!
+        return productDetail!.rating!
     }
     
     func getProductDiscription() -> String {
         
-        return productDetail.description!
+        return productDetail!.description!
     }
     
     func getProductImageCount() -> Int {
@@ -113,11 +113,11 @@ class ProductDetailViewModel {
     }
     
     func getProductImageURL(_ index: Int) -> String {
-        return productDetail.images![index].image!
+        return productDetail!.images![index].image!
     }
     
     func getStarImage(starNumber: Int) -> UIImage {
-        if productDetail.rating! >= starNumber {
+        if productDetail!.rating! >= starNumber {
             return UIImage(named: "star_check")!
         } else {
             return UIImage(named: "star_unchek")!

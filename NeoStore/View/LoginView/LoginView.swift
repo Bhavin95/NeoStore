@@ -24,7 +24,8 @@ class LoginView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        textFieldUserName.text = "tejas.mitna@neosofttech.com"
+        textFieldPassword.text = "tejasm123"
     }
     
     //MARK: Functions
@@ -50,7 +51,7 @@ class LoginView: UIViewController {
             loginViewModel.Login(parameter: ["email": self.textFieldUserName.text!, "password": self.textFieldPassword.text!], onSuccess: {
                 print("SUCCESS")
                 self.removeSpinner()
-//                self.saveCredentials()
+                self.saveCredentials()
             }, onFailure: { (error) in
                 print("FAILURE")
                 self.removeSpinner()

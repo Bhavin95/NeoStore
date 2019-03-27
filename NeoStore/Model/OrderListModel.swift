@@ -12,6 +12,7 @@ struct OrderModel: Codable {
     var id: Int?
     var cost: Int?
     var created: String?
+    var order_details: [OrderDetailModel]?
 }
 
 struct OrderListModel: Codable {

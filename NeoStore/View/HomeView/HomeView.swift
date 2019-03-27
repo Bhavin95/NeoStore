@@ -180,13 +180,34 @@ extension HomeView: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
 
 extension HomeView: HomeViewDelegate {
     func navigate(index: Int) {
+        
+        if menuShowing {
+            menuShowing = false
+            hideMenu()
+        }
         switch index {
         case 0:
-            if menuShowing {
-                hideMenu()
-            }
             let cartListView = CartListView()
             navigationController?.pushViewController(cartListView, animated: true)
+        case 1:
+            let productListView = ProductListView()
+            productListView.myInit(homeViewModel.getProductId(index - 1), homeViewModel.getProductCatagoryName(index - 1))
+            navigationController?.pushViewController(productListView, animated: true)
+        case 2:
+            let productListView = ProductListView()
+            productListView.myInit(homeViewModel.getProductId(index - 1), homeViewModel.getProductCatagoryName(index - 1))
+            navigationController?.pushViewController(productListView, animated: true)
+        case 3:
+            let productListView = ProductListView()
+            productListView.myInit(homeViewModel.getProductId(index - 1), homeViewModel.getProductCatagoryName(index - 1))
+            navigationController?.pushViewController(productListView, animated: true)
+        case 4:
+            let productListView = ProductListView()
+            productListView.myInit(homeViewModel.getProductId(index - 1), homeViewModel.getProductCatagoryName(index - 1))
+            navigationController?.pushViewController(productListView, animated: true)
+        case 7:
+            let myOrderListView = MyOrderListView()
+            navigationController?.pushViewController(myOrderListView, animated: true)
         default:
             break
         }

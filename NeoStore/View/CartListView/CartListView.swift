@@ -102,8 +102,7 @@ class CartListView: UIViewController {
     }
     
      @objc func actionOrderNow(_ sender: UIButton) {
-        let myOrderListView = MyOrderListView()
-        navigationController?.pushViewController(myOrderListView, animated: true)
+        
     }
     
 
@@ -125,7 +124,7 @@ extension CartListView: UITableViewDataSource, UITableViewDelegate {
         cell.labelProductName.text = cartListViewModel.getProductName(index: indexPath.row)
         cell.labelProductCatagory.text = "( " + cartListViewModel.getProductCategoryName(index: indexPath.row) + " )"
         cell.buttonQuantity.tag = indexPath.row
-        cell.buttonQuantity.setTitle("  " + String(cartListViewModel.getProductQuantity(index: indexPath.row)), for: .normal)
+        cell.buttonQuantity.setTitle("   " + String(cartListViewModel.getProductQuantity(index: indexPath.row)), for: .normal)
         cell.buttonQuantity.addTarget(self, action: #selector(actionQuantity(_:)), for: .touchUpInside)
         cell.labelPrice.text =  "₹" + String(cartListViewModel.getProductCost(index: indexPath.row))
         
@@ -141,6 +140,7 @@ extension CartListView: UITableViewDataSource, UITableViewDelegate {
         if let total = cartListViewModel.cartListModel?.total {
             cartListFooterView.labelPrice.text = String(total)
         }
+        cartListFooterView.viewTotal.setBorder(.lightGray, 1, 1, 0, 0, 0)
         cartListFooterView.buttonOrderNow.addTarget(self, action: #selector(actionOrderNow(_:)), for: .touchUpInside)
         return cartListFooterView
     }
@@ -152,7 +152,7 @@ extension CartListView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 200
+        return 180
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

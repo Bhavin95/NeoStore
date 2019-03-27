@@ -10,8 +10,7 @@ import UIKit
 
 class OrderListViewModel {
     
-    var orderModel = [OrderModel]()
-    var orderList: OrderListModel?
+    var orderModel: [OrderModel]?
     
     func getOrderList(parameter:[String:Any], onSuccess: @escaping() -> Void, onFailure: @escaping(String) -> Void) {
         APIManager.sharedInstance.getData(apiName: APIConstants.orderList, parameter: parameter, onSuccess: { (data) in
@@ -35,5 +34,25 @@ class OrderListViewModel {
             onFailure(error.localizedDescription)
             return
         }
+    }
+    
+    func getOrderListCount() -> Int {
+        if orderModel != nil {
+            return (orderModel?.count)!
+        } else {
+            return 0
+        }
+    }
+    
+    func getOrderId(index: Int) -> Int {
+        return orderModel![index].id!
+    }
+    
+    func getOrderDate(index: Int) -> String {
+        return orderModel![index].created!
+    }
+    
+    func getOrderCost(index: Int) -> Int {
+        return orderModel![index].cost!
     }
 }

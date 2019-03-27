@@ -18,20 +18,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="qdP-cU-4ug" customClass="CartListFooterView" customModule="NeoStore" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="429" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="429" height="190"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNI-GD-rR2">
-                    <rect key="frame" x="0.0" y="0.0" width="429" height="92"/>
+                    <rect key="frame" x="0.0" y="0.0" width="429" height="82"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZE-fL-H2n">
-                            <rect key="frame" x="34" y="37" width="71.5" height="18"/>
+                            <rect key="frame" x="34" y="32" width="71.5" height="18"/>
                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₹000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZc-Az-nTv">
-                            <rect key="frame" x="306.5" y="37" width="88.5" height="18"/>
+                            <rect key="frame" x="306.5" y="32" width="88.5" height="18"/>
                             <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3a6-gq-Bl5">
-                    <rect key="frame" x="34" y="126" width="361" height="50"/>
+                    <rect key="frame" x="34" y="116" width="361" height="50"/>
                     <color key="backgroundColor" red="0.91372549020000005" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="B5b-Xj-fEb"/>
@@ -66,6 +66,7 @@
             <constraints>
                 <constraint firstItem="3a6-gq-Bl5" firstAttribute="leading" secondItem="Eg7-lT-yGn" secondAttribute="leading" constant="34" id="Fft-p2-xik"/>
                 <constraint firstItem="Eg7-lT-yGn" firstAttribute="bottom" secondItem="3a6-gq-Bl5" secondAttribute="bottom" constant="24" id="Rxk-HP-3vA"/>
+                <constraint firstItem="Eg7-lT-yGn" firstAttribute="bottom" secondItem="YNI-GD-rR2" secondAttribute="bottom" priority="999" id="kKy-fl-1ll"/>
                 <constraint firstItem="YNI-GD-rR2" firstAttribute="trailing" secondItem="Eg7-lT-yGn" secondAttribute="trailing" id="lTZ-kO-b6E"/>
                 <constraint firstItem="Eg7-lT-yGn" firstAttribute="trailing" secondItem="3a6-gq-Bl5" secondAttribute="trailing" constant="34" id="n3Z-2X-K7G"/>
                 <constraint firstItem="YNI-GD-rR2" firstAttribute="top" secondItem="Eg7-lT-yGn" secondAttribute="top" id="uDQ-Va-E8p"/>
@@ -77,8 +78,9 @@
             <connections>
                 <outlet property="buttonOrderNow" destination="3a6-gq-Bl5" id="dyL-ha-JVj"/>
                 <outlet property="labelPrice" destination="rZc-Az-nTv" id="Orf-1c-QTe"/>
+                <outlet property="viewTotal" destination="YNI-GD-rR2" id="hZa-hR-gQ3"/>
             </connections>
-            <point key="canvasLocation" x="869.60000000000002" y="-42.278860569715143"/>
+            <point key="canvasLocation" x="869.0625" y="-43.309859154929576"/>
         </view>
     </objects>
 </document>

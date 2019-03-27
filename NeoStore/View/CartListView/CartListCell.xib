@@ -42,14 +42,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izZ-Nv-OV0">
-                        <rect key="frame" x="107" y="56" width="40" height="24"/>
+                        <rect key="frame" x="107" y="56" width="50" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="izZ-Nv-OV0" secondAttribute="height" multiplier="5:3" id="Lg1-MM-VX2"/>
-                            <constraint firstAttribute="width" constant="40" id="OeJ-Q8-HCW"/>
+                            <constraint firstAttribute="width" constant="50" id="OeJ-Q8-HCW"/>
+                            <constraint firstAttribute="width" secondItem="izZ-Nv-OV0" secondAttribute="height" multiplier="25:12" id="TLs-dv-1Da"/>
                             <constraint firstAttribute="height" constant="24" id="udY-Fl-aFV"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <state key="normal" title="  1" backgroundImage="select_button">
+                        <state key="normal" title="   1" backgroundImage="select_button">
                             <color key="titleColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <userDefinedRuntimeAttributes>
@@ -68,7 +68,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₹00.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5W-E8-n1I">
-                        <rect key="frame" x="163" y="60.5" width="145" height="15"/>
+                        <rect key="frame" x="173" y="61" width="135" height="13.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="W5W-E8-n1I" secondAttribute="height" multiplier="29:3" id="UCf-HV-xZr"/>
                         </constraints>

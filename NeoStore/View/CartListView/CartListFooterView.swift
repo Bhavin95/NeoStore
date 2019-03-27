@@ -12,6 +12,7 @@ class CartListFooterView: UITableViewHeaderFooterView {
 
     //MARK: Outlets
     
+    @IBOutlet weak var viewTotal: UIView!
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var buttonOrderNow: UIButton!
     

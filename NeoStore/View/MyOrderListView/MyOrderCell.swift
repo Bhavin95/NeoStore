@@ -1,21 +1,20 @@
 //
-//  SideMenuCell.swift
+//  MyOrderCell.swift
 //  NeoStore
 //
-//  Created by webwerks on 25/03/19.
+//  Created by webwerks1 on 27/03/19.
 //  Copyright © 2019 webwerks. All rights reserved.
 //
 
 import UIKit
 
-class SideMenuCell: UITableViewCell {
-    
+class MyOrderCell: UITableViewCell {
+
     //MARK: Outlets
     
-    @IBOutlet weak var imageViewProduct: UIImageView!
-    @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var labelCount: UILabel!
-    
+    @IBOutlet weak var labelOrderId: UILabel!
+    @IBOutlet weak var labelOrderDate: UILabel!
+    @IBOutlet weak var labelOrderCost: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
