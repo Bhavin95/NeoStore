@@ -18,7 +18,7 @@ class ProductDetailViewModel {
                 let jsonDecoder  = JSONDecoder()
                 let productDetail = try jsonDecoder.decode(ProductDetailModel.self, from: data)
                 
-                if productDetail.status! == 200 {
+                if productDetail.status! == APIConstants.statusCode {
                     self.productDetail = productDetail.data
                     onSuccess()
                     return

@@ -17,7 +17,7 @@ class LoginView: UIViewController {
     
     //MARK: Constants and Variable
     
-    private var loginViewModel = LoginViewModel()
+    lazy var loginViewModel = LoginViewModel()
     
     //MARK: View LifeCycle
     
@@ -31,27 +31,48 @@ class LoginView: UIViewController {
     //MARK: Functions
     
     func saveCredentials() {
-        let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: loginViewModel.userModel.email!, accessGroup: KeychainConfiguration.accessGroup)
+        let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: loginViewModel.userModel!.email!, accessGroup: KeychainConfiguration.accessGroup)
         
         do {
             // Save the password for the new item.
-            try passwordItem.savePassword(loginViewModel.userModel.access_token!)
+            try passwordItem.savePassword(loginViewModel.userModel!.access_token!)
         } catch {
             print(error.localizedDescription)
         }
     }
     
-    //MARK: Actions
+    func login() {
+        
+        if textFieldUserName.text!.isValidEmail() {
+            if textFieldPassword.text!.isValidPassword() {
+                if ReachabilityChecker.sharedInstance.isConnectedToNetwork() {
+                    self.showSpinner(onView: self.view)
+                    loginViewModel.login(parameter: ["email": self.textFieldUserName.text!, "password": self.textFieldPassword.text!], onSuccess: {
+                        print("SUCCESS")
+                        self.removeSpinner()
+                        self.saveCredentials()
+                    }, onFailure: { (error) in
+                        print("FAILURE")
+                        self.removeSpinner()
+                        self.alert(message: error, title: "")
+                    })
+                }
+            } else {
+                alert(message: "Password must contain atleast 6 characters ", title: "")
+            }
+        } else {
+            alert(message: "Email address is invalid", title: "")
+        }
+        
+    }
     
-    @IBAction func actionLogin(_ sender: UIButton) {
-        textFieldUserName.resignFirstResponder()
-        textFieldPassword.resignFirstResponder()
+    func forgotPassword(email: String) {
         if ReachabilityChecker.sharedInstance.isConnectedToNetwork() {
             self.showSpinner(onView: self.view)
-            loginViewModel.Login(parameter: ["email": self.textFieldUserName.text!, "password": self.textFieldPassword.text!], onSuccess: {
+            loginViewModel.forgotPassword(parameter: ["email": email], onSuccess: {(success) in
                 print("SUCCESS")
                 self.removeSpinner()
-                self.saveCredentials()
+                self.alert(message: success, title: "")
             }, onFailure: { (error) in
                 print("FAILURE")
                 self.removeSpinner()
@@ -60,13 +81,22 @@ class LoginView: UIViewController {
         }
     }
     
+    //MARK: Actions
+    
+    @IBAction func actionLogin(_ sender: UIButton) {
+        login()
+    }
+    
     @IBAction func actionForgot(_ sender: UIButton) {
-        
+        alertWithEmailTextField(title: "Forgot Password", message: "") { (email) in
+            self.forgotPassword(email: email)
+        }
     }
     
     @IBAction func actionNewAccount(_ sender: UIButton) {
         let registerView = RegisterView()
-        navigationController?.pushViewController(registerView, animated: true)
+        let navController = NavigationController(rootViewController: registerView)
+        present(navController, animated: true, completion: nil)
         
     }
     

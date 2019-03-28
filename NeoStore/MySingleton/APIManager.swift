@@ -15,7 +15,8 @@ final class APIManager {
     
     let baseURL = "http://staging.php-dev.in:8844/trainingapp/api/"
     
-    let token = "5c90c6cfd0409"
+//    let token = "5c90c6cfd0409"
+    var passwordItems = [KeychainPasswordItem]()
     
     func postData(apiName: String,parameter: [String: Any], onSuccess: @escaping(Data) -> Void, onFailure: @escaping(Error) -> Void) {
         
@@ -26,7 +27,7 @@ final class APIManager {
         }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue(token, forHTTPHeaderField: "access_token")
+        request.addValue(APIConstants.token, forHTTPHeaderField: "access_token")
         
         let postString = parameter.queryString
         let postData = postString.data(using: .utf8)
@@ -72,7 +73,7 @@ final class APIManager {
         
         var request = URLRequest(url: (urlComponents?.url)!)
         request.httpMethod = "GET"
-        request.addValue(token, forHTTPHeaderField: "access_token")
+        request.addValue(APIConstants.token, forHTTPHeaderField: "access_token")
         let session = URLSession.shared
         let task = session.dataTask(with: request) { (data, response, error) in
             

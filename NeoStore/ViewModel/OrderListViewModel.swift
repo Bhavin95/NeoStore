@@ -18,7 +18,7 @@ class OrderListViewModel {
                 let jsonDecoder  = JSONDecoder()
                 let orderList = try jsonDecoder.decode(OrderListModel.self, from: data)
                 
-                if orderList.status! == 200 {
+                if orderList.status! == APIConstants.statusCode {
                     self.orderModel = orderList.data!
                     onSuccess()
                     return

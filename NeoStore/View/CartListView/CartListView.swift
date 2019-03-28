@@ -12,7 +12,6 @@ class CartListView: UIViewController {
 
     //MARK: Outlets
     
-    
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: Constants and Variable
@@ -25,7 +24,7 @@ class CartListView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "My Cart"
+        title = TitleConstants.myCart
         tableView.isHidden = true
 //        tableView.tableFooterView = viewFooter
         tableView.register(UINib(nibName: "CartListFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "CartListFooterView")
@@ -50,6 +49,9 @@ class CartListView: UIViewController {
                     self.tableView.reloadData()
                 }
             }) { (error) in
+                DispatchQueue.main.async {
+                    self.tableView.isHidden = true
+                }
                 self.removeSpinner()
                 self.alert(message: error, title: "")
             }
@@ -102,7 +104,8 @@ class CartListView: UIViewController {
     }
     
      @objc func actionOrderNow(_ sender: UIButton) {
-        
+        let addressView = AddressView()
+        navigationController?.pushViewController(addressView, animated: true)
     }
     
 

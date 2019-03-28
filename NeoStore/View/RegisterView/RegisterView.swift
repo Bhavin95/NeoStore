@@ -44,7 +44,7 @@ class RegisterView: UIViewController {
     
     //MARK: Constants and Variables
     
-    private var registerViewModel = RegisterViewModel()
+    lazy var registerViewModel = RegisterViewModel()
     
     var isMaleSelected = true
     var isAgreeSelected = true
@@ -54,7 +54,7 @@ class RegisterView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        title = "Register"
+        title = TitleConstants.register
         
         KeyboardManager.sharedInstance.delegate = self
         
@@ -117,12 +117,8 @@ extension RegisterView: KeyboardManagerDelegate {
             UIView.animate(withDuration: duration) {
                 self.tableViewBottomConstraint.constant = endFrame.size.height
             }
-           
         }
-        
     }
-    
-    
 }
 
 extension RegisterView: UITextFieldDelegate {

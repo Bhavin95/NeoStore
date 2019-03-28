@@ -14,6 +14,7 @@ class SideMenuView: UIViewController {
     
     @IBOutlet weak var delegate: HomeViewDelegate?
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var viewHeader: UIView!
     
     //MARK: Constants and Variable
     
@@ -29,6 +30,7 @@ class SideMenuView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.tableHeaderView = viewHeader
         tableView.register(UINib(nibName: sideMenuCell, bundle: nil), forCellReuseIdentifier: sideMenuCell)
         
     }
@@ -61,8 +63,13 @@ extension SideMenuView: UITableViewDataSource, UITableViewDelegate {
     
     //MARK: UITableViewDelegate
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         delegate?.navigate(index: indexPath.row)
     }
+    
 }

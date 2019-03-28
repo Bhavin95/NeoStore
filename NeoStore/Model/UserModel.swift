@@ -27,3 +27,17 @@ struct UserModel: Codable {
     var access_token: String?
     
 }
+
+struct UserDataModel: Codable {
+    var user_data: UserModel?
+    var product_categories: [ProductCatagoryModel]?
+    var total_carts: Int?
+    var total_orders: Int?
+}
+
+struct UserDetailModel: Codable {
+    var status: Int?
+    var data: UserDataModel?
+    var message: String?
+    var user_msg: String?
+}

@@ -22,6 +22,31 @@ extension UIViewController {
         }
     }
     
+    func alertWithEmailTextField(title: String, message: String, onSuccess: @escaping(String) -> Void) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+            
+            alert.addTextField {
+                $0.placeholder = "Please enter a email"
+                $0.addTarget(alert, action: #selector(alert.textDidChangeInForgotAlert), for: .editingChanged)
+            }
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            
+            let loginAction = UIAlertAction(title: "Submit", style: .default) { Void in
+                guard let email = alert.textFields?[0].text
+                    else { return }
+                onSuccess(email)
+                // Perform login action
+            }
+            
+            loginAction.isEnabled = false
+            alert.addAction(loginAction)
+            self.present(alert, animated: true)
+        }
+        
+    }
+    
     func showSpinner(onView : UIView) {
         DispatchQueue.main.async {
             let spinnerView = UIView.init(frame: onView.bounds)
@@ -43,4 +68,5 @@ extension UIViewController {
             vSpinner = nil
         }
     }
+    
 }

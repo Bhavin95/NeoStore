@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if passwordItems.count != 0 {
                 let password = try passwordItems[0].readPassword()
                 print(password)
-                
+                APIConstants.token = password
                 window?.rootViewController = navController
             } else {
                 window?.rootViewController = loginView

@@ -19,8 +19,12 @@ class CartListViewModel: NSObject {
                 let jsonDecoder  = JSONDecoder()
                 self.cartListModel = try jsonDecoder.decode(CartListModel.self, from: data)
                 
-                if self.cartListModel.status! == 200 {
-                    self.cartList = self.cartListModel.data!
+                if self.cartListModel.status! == APIConstants.statusCode {
+                    guard let data = self.cartListModel.data else  {
+                        onFailure(self.cartListModel.user_msg!)
+                        return
+                    }
+                    self.cartList = data
                     onSuccess()
                     return
                 } else {
@@ -42,7 +46,7 @@ class CartListViewModel: NSObject {
             let resultDict = Utilities.getJSON(APIConstants.editCart, data)
             let statusCode = resultDict["status"] as! Int
             let userMessage = resultDict["user_msg"] as! String
-            if statusCode == 200 {
+            if statusCode == APIConstants.statusCode {
                 onSuccess(userMessage)
                 return
             } else {
@@ -61,7 +65,7 @@ class CartListViewModel: NSObject {
             let resultDict = Utilities.getJSON(APIConstants.deleteCart, data)
             let statusCode = resultDict["status"] as! Int
             let userMessage = resultDict["user_msg"] as! String
-            if statusCode == 200 {
+            if statusCode == APIConstants.statusCode {
                 onSuccess(userMessage)
                 return
             } else {

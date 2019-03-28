@@ -13,5 +13,4 @@ class RegisterViewModel {
      var registerModel = RegisterModel()
     
     
-    
 }

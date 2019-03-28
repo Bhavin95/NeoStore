@@ -10,6 +10,9 @@ import UIKit
 
 class APIConstants {
     
+    static let statusCode = 200
+    static var token = ""
+    
     //MARK: User
     
     static let register = "users/register"
@@ -41,4 +44,16 @@ class APIConstants {
 
 class Constants {
     static let appDelegate = UIApplication.shared.delegate as! AppDelegate
+}
+
+class TitleConstants {
+    
+    static let register = "Register"
+    static let home = "NeoSTORE"
+    static let myCart = "My Cart"
+    static let myOrders = "My Orders"
+    static let placeOrder = "Place Order"
+    static let myAccount = "My Account"
+    static let editProfile = "Edit Profile"
+    
 }

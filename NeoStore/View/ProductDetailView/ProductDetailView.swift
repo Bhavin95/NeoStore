@@ -84,7 +84,6 @@ class ProductDetailView: UIViewController {
             self.showSpinner(onView: self.view)
             productDetailViewModel.getProductDetail(parameter: ["product_id": productID!], onSuccess: {
                 self.removeSpinner()
-                print(self.productDetailViewModel.productDetail)
                 DispatchQueue.main.async {
                     self.setup()
                 }

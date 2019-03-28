@@ -24,7 +24,7 @@ class MyOrderListView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "My Orders"
+        title = TitleConstants.myOrders
         
         self.tableView.isHidden = true
         tableView.register(UINib(nibName: myOrderCell, bundle: nil), forCellReuseIdentifier: myOrderCell)

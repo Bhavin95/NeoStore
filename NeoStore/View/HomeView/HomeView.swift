@@ -22,7 +22,7 @@ class HomeView: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     //MARK: Constants and Variable
     
-    var homeViewModel = HomeViewModel()
+    lazy var homeViewModel = HomeViewModel()
     var count = 0
     weak var timer: Timer?
     var sideMenuView = SideMenuView()
@@ -33,7 +33,7 @@ class HomeView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "NeoSTORE"
+        title = TitleConstants.home
        
         sideMenuView.delegate = self
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(menu))
@@ -205,6 +205,10 @@ extension HomeView: HomeViewDelegate {
             let productListView = ProductListView()
             productListView.myInit(homeViewModel.getProductId(index - 1), homeViewModel.getProductCatagoryName(index - 1))
             navigationController?.pushViewController(productListView, animated: true)
+        case 5:
+            let myAccountView = MyAccountView()
+            myAccountView.myInit(title: TitleConstants.myAccount)
+            navigationController?.pushViewController(myAccountView, animated: true)
         case 7:
             let myOrderListView = MyOrderListView()
             navigationController?.pushViewController(myOrderListView, animated: true)
