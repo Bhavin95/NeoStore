@@ -13,6 +13,23 @@ var vSpinner : UIView?
 
 extension UIViewController {
     
+    @objc func backButtonAction() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func addBackbutton(title: String) {
+        if let nav = self.navigationController,
+            let item = nav.navigationBar.topItem {
+            item.backBarButtonItem  = UIBarButtonItem(title: title, style: .plain, target: self, action:
+                #selector(self.backButtonAction))
+        } else {
+            if let nav = self.navigationController,
+                let _ = nav.navigationBar.backItem {
+                self.navigationController!.navigationBar.backItem!.title = title
+            }
+        }
+    }
+    
     func alert(message: String, title: String ) {
         DispatchQueue.main.async {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

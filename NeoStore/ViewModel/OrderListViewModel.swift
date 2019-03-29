@@ -31,7 +31,7 @@ class OrderListViewModel {
                 return
             }
         }) { (error) in
-            onFailure(error.localizedDescription)
+            onFailure(error)
             return
         }
     }

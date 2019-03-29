@@ -18,12 +18,16 @@ class NavigationController: UINavigationController {
         navigationBar.barTintColor = UIColor(rgb: 0xE91B1A)
         navigationBar.tintColor = .white
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationBar.backItem?.backBarButtonItem?.title = ""
         navigationBar.backItem?.backBarButtonItem?.tintColor = .white
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         
         return .lightContent
+    }
+    
+    func back() {
+        self.popViewController(animated: true)
     }
 }

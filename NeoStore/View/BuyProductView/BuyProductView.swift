@@ -69,18 +69,19 @@ class BuyProductView: UIViewController {
 //MARK: Extensions
 
 extension BuyProductView: KeyboardManagerDelegate {
+    
     func keyboardWillChangeFrame(endFrame: CGRect?, duration: TimeInterval, animationCurve: UIView.AnimationOptions) {
         
         guard let endFrame = endFrame else { return }
         
         if endFrame.origin.y >= UIScreen.main.bounds.size.height {
             UIView.animate(withDuration: duration) {
-                self.viewBackground.center = self.view.center
+                self.view.frame.origin.y = 0
 //                self.tableViewBottomConstraint.constant = 0
             }
         } else {
             UIView.animate(withDuration: duration) {
-                self.viewBackground.frame.origin.y -= (endFrame.size.height / 3)
+                self.view.frame.origin.y -= (endFrame.size.height / 3)
 //                self.tableViewBottomConstraint.constant = endFrame.size.height
             }
             

@@ -18,20 +18,26 @@ class LoginViewModel {
                 let jsonDecoder  = JSONDecoder()
                 let loginModel = try jsonDecoder.decode(LoginModel.self, from: data)
                 
-                if loginModel.status! == APIConstants.statusCode {
+                guard let status = loginModel.status else  {
+                    return
+                }
+                
+                if status == APIConstants.statusCode {
                     self.userModel = loginModel.data!
                     onSuccess()
                     return
                 } else {
-                    onFailure(loginModel.user_msg!)
-                    return
+                    if let user_msg = loginModel.user_msg {
+                        onFailure(user_msg)
+                        return
+                    }
                 }
             } catch {
                 onFailure(error.localizedDescription)
                 return
             }
         }) { (error) in
-            onFailure(error.localizedDescription)
+            onFailure(error)
             return
         }
     }
@@ -50,7 +56,7 @@ class LoginViewModel {
                 return
             }
         }) { (error) in
-            onFailure(error.localizedDescription)
+            onFailure(error)
             return
         }
     }

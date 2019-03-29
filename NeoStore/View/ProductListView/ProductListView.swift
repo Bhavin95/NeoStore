@@ -35,7 +35,6 @@ class ProductListView: UIViewController {
         super.viewDidLoad()
 
         title = productCatagoryName
-        
         tableView.register(UINib(nibName: productCell, bundle: nil), forCellReuseIdentifier: productCell)
         
     }

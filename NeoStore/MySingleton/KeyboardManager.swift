@@ -22,6 +22,8 @@ class KeyboardManager {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
+  
+    
     @objc func keyboardWillChangeFrameNotification(_ notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         

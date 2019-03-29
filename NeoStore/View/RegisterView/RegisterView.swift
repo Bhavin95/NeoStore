@@ -105,17 +105,24 @@ class RegisterView: UIViewController {
 //MARK: Extensions
 
 extension RegisterView: KeyboardManagerDelegate {
+
     func keyboardWillChangeFrame(endFrame: CGRect?, duration: TimeInterval, animationCurve: UIView.AnimationOptions) {
         
         guard let endFrame = endFrame else { return }
         
         if endFrame.origin.y >= UIScreen.main.bounds.size.height {
              UIView.animate(withDuration: duration) {
-                self.tableViewBottomConstraint.constant = 0
+                if self.view.frame.origin.y != 0 {
+                    self.view.frame.origin.y = 0
+                }
+//                self.tableViewBottomConstraint.constant = 0
             }
         } else {
             UIView.animate(withDuration: duration) {
-                self.tableViewBottomConstraint.constant = endFrame.size.height
+                if self.view.frame.origin.y == 0 {
+                    self.view.frame.origin.y -= endFrame.size.height
+                }
+//                self.tableViewBottomConstraint.constant += endFrame.size.height
             }
         }
     }

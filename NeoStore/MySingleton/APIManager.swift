@@ -6,7 +6,7 @@
 //  Copyright © 2019 webwerks. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 final class APIManager {
     
@@ -18,7 +18,7 @@ final class APIManager {
 //    let token = "5c90c6cfd0409"
     var passwordItems = [KeychainPasswordItem]()
     
-    func postData(apiName: String,parameter: [String: Any], onSuccess: @escaping(Data) -> Void, onFailure: @escaping(Error) -> Void) {
+    func postData(apiName: String,parameter: [String: Any], onSuccess: @escaping(Data) -> Void, onFailure: @escaping(String) -> Void) {
         
         let api = baseURL + apiName
         guard let url = URL(string: api) else {
@@ -37,25 +37,33 @@ final class APIManager {
         let task = session.dataTask(with: request) { (data, response, error) in
             
             guard error == nil else {
-                print("error calling POST on \(apiName)" )
-                print(error!)
-                onFailure(error!)
+                onFailure("error calling POST on \(apiName)")
                 return
             }
             guard let data = data else {
-                print("Error: did not receive data")
-                onFailure(error!)
+                onFailure("Error: did not receive data")
                 return
             }
-           
-            onSuccess(data)
+            guard let httpResponse = response as? HTTPURLResponse else {
+                onFailure("Error: did not http response")
+                return
+            }
             
+            if httpResponse.statusCode == APIConstants.statusCode {
+                onSuccess(data)
+            } else {
+                let resultDict = Utilities.getJSON(apiName, data)
+                guard let userMessage = resultDict["user_msg"] as? String else {
+                    return
+                }
+                onFailure(userMessage)
+            }
         }
         task.resume()
         
     }
     
-    func getData(apiName: String,parameter: [String: Any], onSuccess: @escaping(Data) -> Void, onFailure: @escaping(Error) -> Void) {
+    func getData(apiName: String,parameter: [String: Any], onSuccess: @escaping(Data) -> Void, onFailure: @escaping(String) -> Void) {
         
         let api = baseURL + apiName
         guard let url = URL(string: api) else {
@@ -78,17 +86,26 @@ final class APIManager {
         let task = session.dataTask(with: request) { (data, response, error) in
             
             guard error == nil else {
-                print("error calling POST on \(apiName)" )
-                print(error!)
-                onFailure(error!)
+                onFailure("error calling POST on \(apiName)")
                 return
             }
             guard let data = data else {
-                print("Error: did not receive data")
-                onFailure(error!)
+                onFailure("Error: did not receive data")
                 return
             }
-            onSuccess(data)
+            guard let httpResponse = response as? HTTPURLResponse else {
+                onFailure("Error: did not http response")
+                return
+            }
+            if httpResponse.statusCode == APIConstants.statusCode {
+                onSuccess(data)
+            } else {
+                let resultDict = Utilities.getJSON(apiName, data)
+                guard let userMessage = resultDict["user_msg"] as? String else {
+                    return
+                }
+                onFailure(userMessage)
+            }
             
         }
         task.resume()

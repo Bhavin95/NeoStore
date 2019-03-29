@@ -31,7 +31,7 @@ class MyAccountViewModel {
                 return
             }
         }) { (error) in
-            onFailure(error.localizedDescription)
+            onFailure(error)
             return
         }
     }
@@ -50,7 +50,7 @@ class MyAccountViewModel {
                 return
             }
         }) { (error) in
-            onFailure(error.localizedDescription)
+            onFailure(error)
             return
         }
     }

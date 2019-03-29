@@ -31,7 +31,7 @@ class ProductDetailViewModel {
                 return
             }
         }) { (error) in
-            onFailure(error.localizedDescription)
+            onFailure(error)
             return
         }
     
@@ -51,7 +51,7 @@ class ProductDetailViewModel {
                 return
             }
         }) { (error) in
-            onFailure(error.localizedDescription)
+            onFailure(error)
             return
         }
     }
@@ -70,7 +70,7 @@ class ProductDetailViewModel {
                     return
                 }
             }) { (error) in
-                onFailure(error.localizedDescription)
+                onFailure(error)
                 return
             }
     }

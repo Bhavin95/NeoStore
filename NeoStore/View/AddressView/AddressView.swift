@@ -34,13 +34,38 @@ class AddressView: UIViewController {
     
     //MARK: Functions
     
-    //MARK: Actions
-    
-    @IBAction func actionPlaceOrder(_ sender: UIButton) {
+    func placeOrder() {
+        if textViewAddress.text.count == 0 {
+            alert(message: "Enter address", title: "")
+            return
+        }
+        if textFieldLandmark.text!.count == 0 {
+            alert(message: "Enter landmark", title: "")
+            return
+        }
+        if textFieldCity.text!.count == 0 {
+            alert(message: "Enter city", title: "")
+            return
+        }
+        if textFieldState.text!.count == 0 {
+            alert(message: "Enter State", title: "")
+            return
+        }
+        
+        if !(textFieldZipCode.text!.isValidPostalCode()) {
+            alert(message: "Enter a valid zipcode", title: "")
+            return
+        }
+        if textFieldCountry.text!.count == 0 {
+            alert(message: "Enter country", title: "")
+            return
+        }
+        
+        let address = textViewAddress.text! + ", " + textFieldLandmark.text! + ", " + textFieldCity.text! + ", " + textFieldZipCode.text! + ", " + textFieldCountry.text! + "."
         
         if ReachabilityChecker.sharedInstance.isConnectedToNetwork() {
             self.showSpinner(onView: self.view)
-            addressViewModel.placeOrder(parameter: ["address" : "The Ruby, 29-Senapati Bapat Marg, Dadar (West)"], onSuccess: { (success) in
+            addressViewModel.placeOrder(parameter: ["address" : address], onSuccess: { (success) in
                 print("SUCCESS")
                 self.removeSpinner()
                 self.alert(message: success, title: "")
@@ -52,10 +77,14 @@ class AddressView: UIViewController {
                 self.removeSpinner()
                 self.alert(message: error, title: "")
             }
-       
+            
         }
-       
-        
+    }
+    
+    //MARK: Actions
+    
+    @IBAction func actionPlaceOrder(_ sender: UIButton) {
+        placeOrder()
 //        navigationController?.popToRootViewController(animated: true)
     }
     

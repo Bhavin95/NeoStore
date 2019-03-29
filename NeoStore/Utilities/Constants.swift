@@ -43,7 +43,8 @@ class APIConstants {
 }
 
 class Constants {
-    static let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    static let logOutMessage = "Are you sure you want to logout?"
 }
 
 class TitleConstants {
@@ -55,5 +56,19 @@ class TitleConstants {
     static let placeOrder = "Place Order"
     static let myAccount = "My Account"
     static let editProfile = "Edit Profile"
+    static let resetPassword = "Reset Password"
+    
+}
+
+enum FormValidationError: String {
+    case firstName = "Enter First Name"
+    case lastName = "Enter Last Name"
+    case email = "Enter a Valid E-mail Id"
+    case phoneNo = "Enter a valid Phone Number"
+    case password = "Enter a Valid Password"
+    case newPassword = "Enter a New Password"
+    case confirmPassword = "Re-enter To Confirm Password"
+    case gender = "Select a gender"
+    case agreeTerms = "Agree the Terms and Conditions"
     
 }

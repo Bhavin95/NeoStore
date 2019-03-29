@@ -25,7 +25,7 @@ class LoginView: UIViewController {
         super.viewDidLoad()
 
         textFieldUserName.text = "tejas.mitna@neosofttech.com"
-        textFieldPassword.text = "tejasm123"
+        textFieldPassword.text = "tejasm1234"
     }
     
     //MARK: Functions
@@ -36,6 +36,9 @@ class LoginView: UIViewController {
         do {
             // Save the password for the new item.
             try passwordItem.savePassword(loginViewModel.userModel!.access_token!)
+            let homeView = HomeView()
+            let navController = NavigationController(rootViewController: homeView)
+            present(navController, animated: true, completion: nil)
         } catch {
             print(error.localizedDescription)
         }
@@ -43,25 +46,25 @@ class LoginView: UIViewController {
     
     func login() {
         
-        if textFieldUserName.text!.isValidEmail() {
-            if textFieldPassword.text!.isValidPassword() {
-                if ReachabilityChecker.sharedInstance.isConnectedToNetwork() {
-                    self.showSpinner(onView: self.view)
-                    loginViewModel.login(parameter: ["email": self.textFieldUserName.text!, "password": self.textFieldPassword.text!], onSuccess: {
-                        print("SUCCESS")
-                        self.removeSpinner()
-                        self.saveCredentials()
-                    }, onFailure: { (error) in
-                        print("FAILURE")
-                        self.removeSpinner()
-                        self.alert(message: error, title: "")
-                    })
-                }
-            } else {
-                alert(message: "Password must contain atleast 6 characters ", title: "")
-            }
-        } else {
+        if !(textFieldUserName.text!.isValidEmail()) {
             alert(message: "Email address is invalid", title: "")
+            return
+        }
+        if !(textFieldPassword.text!.isValidPassword()) {
+            alert(message: "Password must contain atleast 6 characters ", title: "")
+            return
+        }
+        if ReachabilityChecker.sharedInstance.isConnectedToNetwork() {
+            self.showSpinner(onView: self.view)
+            loginViewModel.login(parameter: ["email": self.textFieldUserName.text!, "password": self.textFieldPassword.text!], onSuccess: {
+                print("SUCCESS")
+                self.removeSpinner()
+                self.saveCredentials()
+            }, onFailure: { (error) in
+                print("FAILURE")
+                self.removeSpinner()
+                self.alert(message: error, title: "")
+            })
         }
         
     }

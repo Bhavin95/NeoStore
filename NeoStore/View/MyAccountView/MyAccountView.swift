@@ -74,7 +74,7 @@ class MyAccountView: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
          if TitleConstants.myAccount == navTitle {
             getUserData()
-        }
+         }
         
     }
 
@@ -106,6 +106,11 @@ class MyAccountView: UIViewController {
         textFieldDateOfBirth.text = myAccountViewModel.getDateOfBirth()
     }
     
+    func editProfile() {
+       
+        
+    }
+    
     //MARK: Actions
     
     @IBAction func actionEditProfile(_ sender: UIButton) {
@@ -116,6 +121,11 @@ class MyAccountView: UIViewController {
         } else {
             
         }
+    }
+    
+    @IBAction func actionResetPassword(_ sender: UIButton) {
+        let resetPasswordView = ResetPasswordView()
+        navigationController?.pushViewController(resetPasswordView, animated: true)
         
     }
     
@@ -132,13 +142,16 @@ extension MyAccountView: KeyboardManagerDelegate {
         if endFrame.origin.y >= UIScreen.main.bounds.size.height {
             UIView.animate(withDuration: duration) {
                 self.tableViewBottomConstraint.constant = 0
+                
             }
         } else {
-            UIView.animate(withDuration: duration) {
-                self.tableViewBottomConstraint.constant = endFrame.size.height
-            }
+                UIView.animate(withDuration: duration) {
+                    self.tableViewBottomConstraint.constant += endFrame.size.height
+                }
         }
     }
+    
+    
 }
 
 
@@ -171,6 +184,13 @@ extension MyAccountView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    //MARK: UIScrollViewDelegate
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        print("scrollViewWillBeginDragging")
+        self.view.endEditing(true)
     }
 }
 

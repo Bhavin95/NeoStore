@@ -34,9 +34,9 @@ class HomeView: UIViewController {
         super.viewDidLoad()
 
         title = TitleConstants.home
-       
+        addBackbutton(title: "")
         sideMenuView.delegate = self
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(menu))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"menu_icon"), style: .plain, target: self, action: #selector(menu))
         
         pageControl.hidesForSinglePage = true
         collectionViewBanner.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
@@ -96,10 +96,6 @@ class HomeView: UIViewController {
     
     func showMenu() {
         UIView.animate(withDuration: 0.5) {
-            let transition = CATransition()
-            transition.type = CATransitionType.push
-            transition.subtype = CATransitionSubtype.fromLeft
-            self.view.layer.add(transition, forKey: nil)
             self.view.addSubview(self.sideMenuView.view)
             
         }
@@ -159,7 +155,7 @@ extension HomeView: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         if collectionView == collectionViewBanner {
             return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
         } else {
-            return CGSize(width: (collectionView.frame.size.width / 2) - 18, height: (collectionView.frame.size.width / 2) - 18)
+            return CGSize(width: (collectionView.frame.size.width - 10) / 2 , height: (collectionView.frame.size.height - 10) / 2 )
         }
     }
     

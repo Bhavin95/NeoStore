@@ -44,7 +44,7 @@
                             <color key="textColor" red="0.17254901960784313" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bDS-iK-eQv">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bDS-iK-eQv">
                             <rect key="frame" x="24" y="87" width="240" height="120"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="bDS-iK-eQv" secondAttribute="height" multiplier="2:1" id="p5Z-HH-q9c"/>
@@ -117,10 +117,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cpk-hQ-Bq4" secondAttribute="trailing" constant="16" id="1QG-75-y77"/>
                 <constraint firstItem="Cpk-hQ-Bq4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9zf-4x-MwJ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cpk-hQ-Bq4" secondAttribute="trailing" constant="16" id="evJ-xe-hWZ"/>
+                <constraint firstItem="Cpk-hQ-Bq4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="fDD-cn-Qaj"/>
                 <constraint firstItem="Cpk-hQ-Bq4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="jne-VH-JzP"/>
-                <constraint firstItem="Cpk-hQ-Bq4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="xg2-tR-yvk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>

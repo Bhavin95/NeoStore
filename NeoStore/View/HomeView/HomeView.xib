@@ -46,13 +46,13 @@
                     <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </pageControl>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="K18-g6-CJo">
-                    <rect key="frame" x="0.0" y="240" width="320" height="328"/>
+                    <rect key="frame" x="10" y="250" width="300" height="308"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="12" minimumInteritemSpacing="12" id="Z0u-RK-9s4">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z0u-RK-9s4">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="12" minY="12" maxX="12" maxY="12"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="KCT-Ak-Hrv"/>
@@ -62,14 +62,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="K18-g6-CJo" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="AS6-Re-txg"/>
+                <constraint firstItem="K18-g6-CJo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="42r-ZY-j8h"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="K18-g6-CJo" secondAttribute="bottom" constant="10" id="73D-O7-dPf"/>
                 <constraint firstItem="2na-5E-1uZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FZO-ch-WMJ"/>
                 <constraint firstItem="2na-5E-1uZ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="K2M-5Z-QSu"/>
-                <constraint firstItem="K18-g6-CJo" firstAttribute="top" secondItem="2na-5E-1uZ" secondAttribute="bottom" id="Nfg-ia-UOo"/>
                 <constraint firstItem="u1h-hL-295" firstAttribute="bottom" secondItem="2na-5E-1uZ" secondAttribute="bottom" id="Vr7-n0-sL1"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="K18-g6-CJo" secondAttribute="bottom" id="e8M-yu-bKL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K18-g6-CJo" secondAttribute="trailing" constant="10" id="h3H-JA-3KK"/>
                 <constraint firstItem="u1h-hL-295" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hGO-ie-Tqp"/>
-                <constraint firstItem="K18-g6-CJo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="j1z-ds-9Yo"/>
+                <constraint firstItem="K18-g6-CJo" firstAttribute="top" secondItem="2na-5E-1uZ" secondAttribute="bottom" constant="10" id="i5l-Nb-urw"/>
                 <constraint firstItem="2na-5E-1uZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="rkB-lv-ODf"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
